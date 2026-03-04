@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Blog | Dentech Repair | MacBook Tips & Repair Guides</title>
+    <meta name="description"
+        content="MacBook repair tips, troubleshooting guides, and expert advice from Dentech Repair Nairobi. Learn how to protect your MacBook and when to seek professional help." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Blog — Dentech Repair | MacBook Tips & Guides" />
+    <meta property="og:description"
+        content="Expert MacBook repair tips, troubleshooting guides, and maintenance advice." />
+    <meta property="og:image" content="https://sharlmon.github.io/den-tech/logo.jpg.jpeg" />
+    <meta property="og:url" content="https://sharlmon.github.io/den-tech/blog.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/jpeg" href="logo.jpg.jpeg" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: { primary: "#007AFF", "background-light": "#F9FAFB", "background-dark": "#111827" },
+                    fontFamily: { display: ["Outfit", "Inter", "sans-serif"], sans: ["Inter", "sans-serif"] },
+                    borderRadius: { DEFAULT: "0.75rem" },
+                },
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        .glass-effect { backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.8); }
+        .dark .glass-effect { background: rgba(17, 24, 39, 0.8); }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(0, 122, 255, 0.05), transparent),
+                        radial-gradient(circle at bottom left, rgba(0, 122, 255, 0.03), transparent);
+        }
+        .page-loader { position: fixed; inset: 0; z-index: 9999; background: #F9FAFB; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
+        .dark .page-loader { background: #111827; }
+        .page-loader.hidden { opacity: 0; visibility: hidden; }
+        .loader-spinner { width: 48px; height: 48px; border: 4px solid #e5e7eb; border-top-color: #007AFF; border-radius: 50%; animation: spin 0.7s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .blog-card { transition: all 0.3s ease; }
+        .blog-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .blog-card:hover .blog-img { transform: scale(1.05); }
+    </style>
+</head>
+
+<body
+    class="font-sans text-slate-900 bg-background-light dark:bg-background-dark dark:text-slate-100 selection:bg-primary selection:text-white">
+
+    <div class="page-loader" id="pageLoader">
+        <div class="text-center">
+            <div class="loader-spinner mx-auto mb-4"></div>
+            <p class="text-sm font-semibold text-primary tracking-wider">DENTECH REPAIR</p>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="bg-slate-900 text-white py-2 px-4 text-center text-sm font-medium">
+        <div class="container mx-auto flex justify-center items-center gap-6">
+            <span class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">call</span>
+                Dennis: <a class="hover:text-primary transition-colors" href="tel:0758409912">0758 409 912</a>
+            </span>
+            <span class="hidden md:flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm text-yellow-400">verified</span>
+                Licensed &amp; Insured MacBook Specialist
+            </span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass-effect border-b border-slate-200 dark:border-slate-800">
+        <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img alt="Dentech Logo" class="h-10 w-10 rounded-lg shadow-sm" src="logo.jpg.jpeg" />
+                <div>
+                    <span
+                        class="text-2xl font-display font-bold tracking-tight text-slate-900 dark:text-white leading-none block">DENTECH</span>
+                    <span class="text-[10px] uppercase tracking-[0.2em] font-semibold text-primary">Repair
+                        Specialist</span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                    href="index.html">Home</a>
+                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                    href="services.html">Services</a>
+                <a class="font-medium text-primary" href="blog.html">Blog</a>
+                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                    href="contact.html">Contact</a>
+                <button id="darkToggle"
+                    class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                    title="Toggle dark mode">
+                    <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                </button>
+                <a class="bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg"
+                    href="booking.html">Book Diagnosis</a>
+            </div>
+            <div class="flex items-center gap-2 md:hidden">
+                <button id="darkToggleMobile"
+                    class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                    title="Toggle dark mode">
+                    <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                </button>
+                <button id="mobileMenuBtn" class="text-slate-900 dark:text-white">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
+            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+                href="index.html">Home</a>
+            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+                href="services.html">Services</a>
+            <a class="block font-medium text-primary py-2" href="blog.html">Blog</a>
+            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+                href="contact.html">Contact</a>
+            <a class="block bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-center"
+                href="booking.html">Book Diagnosis</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-20 pb-16 hero-gradient">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary text-sm font-bold mb-6 border border-blue-100 dark:border-blue-800">
+                <span class="material-symbols-outlined text-sm">article</span>
+                KNOWLEDGE BASE
+            </div>
+            <h1 class="text-4xl md:text-6xl font-display font-bold text-slate-900 dark:text-white mb-6">Blog & Repair
+                Guides</h1>
+            <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                Expert tips, troubleshooting guides, and insights from Dennis to help you understand and protect your
+                MacBook.
+            </p>
+        </div>
+    </header>
+
+    <!-- Featured Post -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-lg"
+                data-aos="fade-up">
+                <div class="grid md:grid-cols-2">
+                    <div class="h-64 md:h-auto overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop&q=80"
+                            alt="Logic board repair close-up" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <span
+                            class="inline-block px-3 py-1 rounded-full bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-bold mb-4 w-fit">FEATURED</span>
+                        <h2 class="text-2xl font-display font-bold mb-4 text-slate-900 dark:text-white">5 Signs Your
+                            MacBook Logic Board Is Failing</h2>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">Learn the early warning signs
+                            of logic board failure before it's too late. From unexpected shutdowns to charging issues,
+                            here's what to watch for.</p>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                                <span class="text-primary text-xs font-bold">D</span>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-slate-900 dark:text-white">Dennis Njoroge</p>
+                                <p class="text-xs text-slate-500">March 1, 2024 · 5 min read</p>
+                            </div>
+                        </div>
+                        <a href="#post1"
+                            class="inline-flex items-center text-primary font-bold hover:gap-2 transition-all">
+                            Read Article <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="pb-24">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+                <!-- Post 1 -->
+                <article
+                    class="blog-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm"
+                    data-aos="fade-up" data-aos-delay="0" id="post1">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1585399000684-d2f72660f092?w=600&h=400&fit=crop&q=80"
+                            alt="Water spill on laptop"
+                            class="blog-img w-full h-full object-cover transition-transform duration-500" />
+                    </div>
+                    <div class="p-6">
+                        <span
+                            class="inline-block px-2 py-0.5 rounded-full bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-bold mb-3">URGENT</span>
+                        <h3 class="text-lg font-bold mb-3 text-slate-900 dark:text-white">What To Do Immediately After
+                            Spilling Water on Your MacBook</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">The first 30 minutes
+                            are critical. Here's the exact steps to take to maximize your chances of saving your MacBook
+                            from liquid damage.</p>
+                        <div class="border-t border-slate-100 dark:border-slate-700 pt-4">
+                            <h4 class="text-sm font-bold text-primary mb-2">Quick Steps:</h4>
+                            <ol class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5 list-decimal pl-4">
+                                <li><strong>Power off immediately</strong> — Don't try to save your work. Hold the power
+                                    button.</li>
+                                <li><strong>Unplug everything</strong> — Charger, USB devices, headphones.</li>
+                                <li><strong>Flip it upside down</strong> — Let gravity pull water away from the logic
+                                    board.</li>
+                                <li><strong>Do NOT use rice</strong> — It doesn't work and leaves starch residue.</li>
+                                <li><strong>Do NOT use a hair dryer</strong> — Heat can warp components.</li>
+                                <li><strong>Bring it to us within 24 hours</strong> — Corrosion starts immediately.</li>
+                            </ol>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-4">By Dennis · Feb 20, 2024</p>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article
+                    class="blog-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=400&fit=crop&q=80"
+                            alt="MacBook on desk"
+                            class="blog-img w-full h-full object-cover transition-transform duration-500" />
+                    </div>
+                    <div class="p-6">
+                        <span
+                            class="inline-block px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary text-xs font-bold mb-3">MAINTENANCE</span>
+                        <h3 class="text-lg font-bold mb-3 text-slate-900 dark:text-white">7 Tips to Extend Your
+                            MacBook's Lifespan</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">Simple habits that
+                            can add years to your MacBook's life and save you thousands in repairs.</p>
+                        <div class="border-t border-slate-100 dark:border-slate-700 pt-4">
+                            <h4 class="text-sm font-bold text-primary mb-2">Key Tips:</h4>
+                            <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
+                                <li>🔋 Keep battery between 20-80% when possible</li>
+                                <li>🌡️ Use on hard, flat surfaces for proper ventilation</li>
+                                <li>🧹 Clean the keyboard regularly with compressed air</li>
+                                <li>🔄 Keep macOS and apps updated</li>
+                                <li>💾 Back up regularly with Time Machine</li>
+                                <li>🛡️ Use a quality case for transport</li>
+                                <li>⚡ Use the original Apple charger</li>
+                            </ul>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-4">By Dennis · Feb 15, 2024</p>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article
+                    class="blog-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=600&h=400&fit=crop&q=80"
+                            alt="Hard drive internals"
+                            class="blog-img w-full h-full object-cover transition-transform duration-500" />
+                    </div>
+                    <div class="p-6">
+                        <span
+                            class="inline-block px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-bold mb-3">DATA
+                            SAFETY</span>
+                        <h3 class="text-lg font-bold mb-3 text-slate-900 dark:text-white">Can Your Data Be Recovered
+                            From a Dead MacBook?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">Your MacBook won't
+                            turn on, but your photos and documents might still be intact. Here's what's possible.</p>
+                        <div class="border-t border-slate-100 dark:border-slate-700 pt-4">
+                            <h4 class="text-sm font-bold text-primary mb-2">Recovery Chances:</h4>
+                            <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
+                                <li>✅ <strong>Logic board failure</strong> — Very high recovery rate</li>
+                                <li>✅ <strong>Liquid damage (early)</strong> — Usually recoverable</li>
+                                <li>⚠️ <strong>SSD controller failure</strong> — Often recoverable</li>
+                                <li>⚠️ <strong>Encrypted T2/M1+ drives</strong> — Depends on chip integrity</li>
+                                <li>❌ <strong>Physical SSD damage</strong> — Very difficult</li>
+                            </ul>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-4">By Dennis · Feb 10, 2024</p>
+                    </div>
+                </article>
+
+                <!-- Post 4 -->
+                <article
+                    class="blog-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm"
+                    data-aos="fade-up" data-aos-delay="0">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop&q=80"
+                            alt="MacBook repair workspace"
+                            class="blog-img w-full h-full object-cover transition-transform duration-500" />
+                    </div>
+                    <div class="p-6">
+                        <span
+                            class="inline-block px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-bold mb-3">GUIDE</span>
+                        <h3 class="text-lg font-bold mb-3 text-slate-900 dark:text-white">Apple Store vs Independent
+                            Repair: What's the Difference?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">Understanding why
+                            independent repair shops can often fix what Apple says is "unrepairable" — and for a
+                            fraction of the cost.</p>
+                        <div class="border-t border-slate-100 dark:border-slate-700 pt-4">
+                            <div class="grid grid-cols-2 gap-2 text-xs text-slate-600 dark:text-slate-400">
+                                <div>
+                                    <p class="font-bold text-slate-900 dark:text-white mb-1">Apple Store:</p>
+                                    <ul class="space-y-1">
+                                        <li>• Whole-unit replacement</li>
+                                        <li>• KSh 50,000 - 150,000+</li>
+                                        <li>• Data usually lost</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-primary mb-1">Dentech:</p>
+                                    <ul class="space-y-1">
+                                        <li>• Component-level fix</li>
+                                        <li>• KSh 5,000 - 30,000</li>
+                                        <li>• Data preserved</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-4">By Dennis · Feb 5, 2024</p>
+                    </div>
+                </article>
+
+                <!-- Post 5 -->
+                <article
+                    class="blog-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&q=80"
+                            alt="Circuit board close-up"
+                            class="blog-img w-full h-full object-cover transition-transform duration-500" />
+                    </div>
+                    <div class="p-6">
+                        <span
+                            class="inline-block px-2 py-0.5 rounded-full bg-yellow-50 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 text-xs font-bold mb-3">TROUBLESHOOT</span>
+                        <h3 class="text-lg font-bold mb-3 text-slate-900 dark:text-white">MacBook Not Charging? Here's
+                            Why</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">Before you panic, try
+                            these diagnostics. Not all charging issues require a repair — but some definitely do.</p>
+                        <div class="border-t border-slate-100 dark:border-slate-700 pt-4">
+                            <h4 class="text-sm font-bold text-primary mb-2">Common Causes:</h4>
+                            <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
+                                <li>🔌 Faulty cable or adapter (try a different one)</li>
+                                <li>🧹 Dirty USB-C port (clean gently with toothpick)</li>
+                                <li>🔋 Battery management (reset SMC/PRAM)</li>
+                                <li>⚡ Damaged charging circuit (needs repair)</li>
+                                <li>🔥 Liquid damage to power rail (needs repair)</li>
+                            </ul>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-4">By Dennis · Jan 28, 2024</p>
+                    </div>
+                </article>
+
+                <!-- Post 6 -->
+                <article
+                    class="blog-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="h-48 overflow-hidden bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-6xl">build</span>
+                    </div>
+                    <div class="p-6">
+                        <span
+                            class="inline-block px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary text-xs font-bold mb-3">BEHIND
+                            THE SCENES</span>
+                        <h3 class="text-lg font-bold mb-3 text-slate-900 dark:text-white">What Happens During a Free
+                            Diagnosis?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">Curious about what we
+                            do when you bring your MacBook in? Here's a walkthrough of our professional diagnosis
+                            process.</p>
+                        <div class="border-t border-slate-100 dark:border-slate-700 pt-4">
+                            <h4 class="text-sm font-bold text-primary mb-2">Our Process:</h4>
+                            <ol class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5 list-decimal pl-4">
+                                <li>Visual inspection for physical damage</li>
+                                <li>Power-on test and system diagnostics</li>
+                                <li>Board-level inspection under microscope</li>
+                                <li>Component testing with multimeter</li>
+                                <li>Clear quote with repair options</li>
+                            </ol>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-4">By Dennis · Jan 20, 2024</p>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- CTA -->
+            <div class="max-w-2xl mx-auto mt-16 text-center" data-aos="fade-up">
+                <div class="bg-slate-900 rounded-2xl p-10">
+                    <h2 class="text-2xl font-display font-bold text-white mb-3">Have a MacBook Problem?</h2>
+                    <p class="text-slate-400 mb-6">Don't wait until it gets worse. Get a free diagnosis today.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="booking.html"
+                            class="bg-primary hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-all shadow-lg hover:shadow-xl">Book
+                            Free Diagnosis</a>
+                        <a href="https://wa.me/message/LQPWHU2EV3P4I1" target="_blank"
+                            class="bg-[#25D366] hover:bg-[#1da851] text-white px-8 py-3 rounded-full font-semibold transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z">
+                                </path>
+                            </svg>
+                            WhatsApp Dennis
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Floating Button -->
+    <a class="fixed bottom-6 right-6 z-[100] bg-[#25D366] text-white p-3 md:pl-4 md:pr-6 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform"
+        href="https://wa.me/message/LQPWHU2EV3P4I1" target="_blank" rel="noopener noreferrer">
+        <div class="bg-white rounded-full p-1 flex items-center justify-center">
+            <svg class="w-6 h-6 fill-[#25D366]" viewBox="0 0 24 24">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z">
+                </path>
+            </svg>
+        </div>
+        <span class="font-bold hidden md:block">Chat with Dennis</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 pt-16 pb-10">
+        <div class="container mx-auto px-4">
+            <div
+                class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+                <p>&copy; 2024 Dentech Repair. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a class="hover:text-primary" href="index.html">Home</a>
+                    <a class="hover:text-primary" href="services.html">Services</a>
+                    <a class="hover:text-primary" href="booking.html">Book Online</a>
+                    <a class="hover:text-primary" href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true; s1.src = 'https://embed.tawk.to/default/default';
+            s1.charset = 'UTF-8'; s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 80 });
+        window.addEventListener('load', () => { document.getElementById('pageLoader').classList.add('hidden'); });
+        function toggleDark() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+        if (localStorage.getItem('darkMode') === 'true') document.documentElement.classList.add('dark');
+        document.getElementById('darkToggle').addEventListener('click', toggleDark);
+        document.getElementById('darkToggleMobile').addEventListener('click', toggleDark);
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date()); gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+</body>
+
+</html>

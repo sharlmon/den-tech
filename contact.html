@@ -5,50 +5,76 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Contact Us | Dentech Repair | Get in Touch</title>
+    <meta name="description"
+        content="Contact Dentech Repair for MacBook repairs in Nairobi. Visit us at Bekim House, Crossway. Call Dennis: 0758 409 912. Free diagnosis available." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contact Dentech Repair — MacBook Specialists Nairobi" />
+    <meta property="og:description"
+        content="Get in touch for MacBook repairs. Free diagnosis, Bekim House, Crossway, Nairobi." />
+    <meta property="og:image" content="https://sharlmon.github.io/den-tech/logo.jpg.jpeg" />
+    <meta property="og:url" content="https://sharlmon.github.io/den-tech/contact.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/jpeg" href="logo.jpg.jpeg" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "mainEntity": {
+            "@type": "LocalBusiness",
+            "name": "Dentech Repair",
+            "telephone": "+254758409912",
+            "email": "denisnjoroge180@gmail.com",
+            "address": { "@type": "PostalAddress", "streetAddress": "Bekim House, Crossway", "addressLocality": "Nairobi", "addressCountry": "KE" }
+        }
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
-                    colors: {
-                        primary: "#007AFF",
-                        "background-light": "#F9FAFB",
-                        "background-dark": "#111827",
-                    },
-                    fontFamily: {
-                        display: ["Outfit", "Inter", "sans-serif"],
-                        sans: ["Inter", "sans-serif"],
-                    },
-                    borderRadius: {
-                        DEFAULT: "0.75rem",
-                    },
+                    colors: { primary: "#007AFF", "background-light": "#F9FAFB", "background-dark": "#111827" },
+                    fontFamily: { display: ["Outfit", "Inter", "sans-serif"], sans: ["Inter", "sans-serif"] },
+                    borderRadius: { DEFAULT: "0.75rem" },
                 },
             },
         };
     </script>
     <style type="text/tailwindcss">
-        .glass-effect {
-        backdrop-filter: blur(12px);
-        background: rgba(255, 255, 255, 0.8);
-    }
-    .dark .glass-effect {
-        background: rgba(17, 24, 39, 0.8);
-    }
-    .hero-gradient {
-        background: radial-gradient(circle at top right, rgba(0, 122, 255, 0.05), transparent),
-                    radial-gradient(circle at bottom left, rgba(0, 122, 255, 0.03), transparent);
-    }
-</style>
+        .glass-effect { backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.8); }
+        .dark .glass-effect { background: rgba(17, 24, 39, 0.8); }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(0, 122, 255, 0.05), transparent),
+                        radial-gradient(circle at bottom left, rgba(0, 122, 255, 0.03), transparent);
+        }
+        .page-loader {
+            position: fixed; inset: 0; z-index: 9999; background: #F9FAFB;
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .dark .page-loader { background: #111827; }
+        .page-loader.hidden { opacity: 0; visibility: hidden; }
+        .loader-spinner { width: 48px; height: 48px; border: 4px solid #e5e7eb; border-top-color: #007AFF; border-radius: 50%; animation: spin 0.7s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
 </head>
 
 <body
     class="font-sans text-slate-900 bg-background-light dark:bg-background-dark dark:text-slate-100 selection:bg-primary selection:text-white">
+
+    <div class="page-loader" id="pageLoader">
+        <div class="text-center">
+            <div class="loader-spinner mx-auto mb-4"></div>
+            <p class="text-sm font-semibold text-primary tracking-wider">DENTECH REPAIR</p>
+        </div>
+    </div>
 
     <!-- Top Bar -->
     <div class="bg-slate-900 text-white py-2 px-4 text-center text-sm font-medium">
@@ -59,7 +85,7 @@
             </span>
             <span class="hidden md:flex items-center gap-2">
                 <span class="material-symbols-outlined text-sm text-yellow-400">verified</span>
-                Licensed &amp; Insured
+                Licensed &amp; Insured MacBook Specialist
             </span>
         </div>
     </div>
@@ -72,7 +98,7 @@
                 <div>
                     <span
                         class="text-2xl font-display font-bold tracking-tight text-slate-900 dark:text-white leading-none block">DENTECH</span>
-                    <span class="text-[10px] uppercase tracking-[0.2em] font-semibold text-primary">Mac Repair
+                    <span class="text-[10px] uppercase tracking-[0.2em] font-semibold text-primary">Repair
                         Specialist</span>
                 </div>
             </div>
@@ -81,13 +107,29 @@
                     href="index.html">Home</a>
                 <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
                     href="services.html">Services</a>
+                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                    href="blog.html">Blog</a>
                 <a class="font-medium text-primary" href="contact.html">Contact</a>
+                <button id="darkToggle"
+                    class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                    title="Toggle dark mode">
+                    <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                </button>
                 <a class="bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg"
-                    href="contact.html">Book Diagnosis</a>
+                    href="booking.html">Book Diagnosis</a>
             </div>
-            <button id="mobileMenuBtn" class="md:hidden text-slate-900 dark:text-white">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
+            <div class="flex items-center gap-2 md:hidden">
+                <button id="darkToggleMobile"
+                    class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                    title="Toggle dark mode">
+                    <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                </button>
+                <button id="mobileMenuBtn" class="text-slate-900 dark:text-white">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
         </div>
         <div id="mobileMenu"
             class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
@@ -95,92 +137,97 @@
                 href="index.html">Home</a>
             <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
                 href="services.html">Services</a>
+            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+                href="blog.html">Blog</a>
             <a class="block font-medium text-primary py-2" href="contact.html">Contact</a>
             <a class="block bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-center"
-                href="contact.html">Book Diagnosis</a>
+                href="booking.html">Book Diagnosis</a>
         </div>
     </nav>
 
     <!-- Header -->
     <header class="pt-20 pb-16 hero-gradient">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-display font-bold text-slate-900 dark:text-white mb-6">Get in Touch
-            </h1>
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary text-sm font-bold mb-6 border border-blue-100 dark:border-blue-800">
+                GET IN TOUCH
+            </div>
+            <h1 class="text-4xl md:text-6xl font-display font-bold text-slate-900 dark:text-white mb-6">Contact Us</h1>
             <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                Need a repair? Describe your issue or visit our workshop for a free diagnosis.
+                Ready to get your MacBook fixed? Reach out for a free diagnosis or visit our workshop in Nairobi.
             </p>
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Contact Content -->
     <main class="py-16">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-
-                <!-- Contact Information Card -->
-                <div
-                    class="bg-white dark:bg-slate-800 rounded-2xl p-10 border border-slate-100 dark:border-slate-700 shadow-sm">
-                    <h2 class="text-2xl font-display font-bold mb-8 text-slate-900 dark:text-white">Contact Information
-                    </h2>
-
-                    <div class="space-y-8">
-                        <!-- Lead Technician -->
-                        <div class="flex items-start gap-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+                <!-- Contact Info -->
+                <div data-aos="fade-right">
+                    <h2 class="text-2xl font-display font-bold mb-8 text-slate-900 dark:text-white">Reach Dennis
+                        Directly</h2>
+                    <div class="space-y-6">
+                        <a href="tel:0758409912"
+                            class="flex items-center gap-4 p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-all group">
                             <div
-                                class="w-12 h-12 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary flex-shrink-0">
-                                <span class="material-symbols-outlined">person</span>
-                            </div>
-                            <div>
-                                <p class="text-xs uppercase tracking-wider text-primary font-bold mb-1">Lead Technician
-                                </p>
-                                <p class="text-lg font-semibold text-slate-900 dark:text-white">Dennis</p>
-                            </div>
-                        </div>
-
-                        <!-- Phone Number -->
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary flex-shrink-0">
+                                class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
                                 <span class="material-symbols-outlined">call</span>
                             </div>
                             <div>
-                                <p class="text-xs uppercase tracking-wider text-primary font-bold mb-1">Phone Number</p>
-                                <a class="text-lg font-semibold text-slate-900 dark:text-white hover:text-primary transition-colors"
-                                    href="tel:0758409912">0758 409 912</a>
+                                <p class="font-semibold text-slate-900 dark:text-white">Phone</p>
+                                <p class="text-slate-600 dark:text-slate-400">0758 409 912</p>
                             </div>
-                        </div>
-
-                        <!-- Email Address -->
-                        <div class="flex items-start gap-4">
+                        </a>
+                        <a href="https://wa.me/message/LQPWHU2EV3P4I1" target="_blank"
+                            class="flex items-center gap-4 p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-all group">
                             <div
-                                class="w-12 h-12 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary flex-shrink-0">
+                                class="w-12 h-12 bg-[#25D366]/10 rounded-xl flex items-center justify-center text-[#25D366] group-hover:bg-[#25D366] group-hover:text-white transition-all">
+                                <span class="material-symbols-outlined">chat</span>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-slate-900 dark:text-white">WhatsApp</p>
+                                <p class="text-slate-600 dark:text-slate-400">Message Dennis on WhatsApp</p>
+                            </div>
+                        </a>
+                        <a href="mailto:denisnjoroge180@gmail.com"
+                            class="flex items-center gap-4 p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-all group">
+                            <div
+                                class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
                                 <span class="material-symbols-outlined">mail</span>
                             </div>
                             <div>
-                                <p class="text-xs uppercase tracking-wider text-primary font-bold mb-1">Email Address
-                                </p>
-                                <a class="text-lg font-semibold text-slate-900 dark:text-white hover:text-primary transition-colors"
-                                    href="mailto:denisnjoroge180@gmail.com">denisnjoroge180@gmail.com</a>
+                                <p class="font-semibold text-slate-900 dark:text-white">Email</p>
+                                <p class="text-slate-600 dark:text-slate-400">denisnjoroge180@gmail.com</p>
                             </div>
-                        </div>
-
-                        <!-- Workshop Location -->
-                        <div class="flex items-start gap-4">
+                        </a>
+                        <div
+                            class="flex items-center gap-4 p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
                             <div
-                                class="w-12 h-12 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary flex-shrink-0">
+                                class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
                                 <span class="material-symbols-outlined">location_on</span>
                             </div>
                             <div>
-                                <p class="text-xs uppercase tracking-wider text-primary font-bold mb-1">Workshop
-                                    Location</p>
-                                <p class="text-lg font-semibold text-slate-900 dark:text-white">Bekim House
+                                <p class="font-semibold text-slate-900 dark:text-white">Workshop</p>
+                                <p class="text-slate-600 dark:text-slate-400">Bekim House, Crossway<br>Nairobi, Kenya
                                 </p>
-                                <p class="text-slate-600 dark:text-slate-400">Crossway, Nairobi</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-4 p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+                            <div
+                                class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined">schedule</span>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-slate-900 dark:text-white">Working Hours</p>
+                                <p class="text-slate-600 dark:text-slate-400">Mon - Sat: 9:00 AM – 6:00 PM<br>Sunday:
+                                    Closed</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Map Embed -->
+                    <!-- Map -->
                     <div class="mt-10 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.4!2d36.8047344!3d-1.2665125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f173f74ebbad7%3A0xb3facae314f782a4!2sBekim%20House!5e0!3m2!1sen!2ske!4v1709548800000!5m2!1sen!2ske"
@@ -190,66 +237,73 @@
                     </div>
                 </div>
 
-                <!-- Repair Inquiry Form -->
-                <div
-                    class="bg-white dark:bg-slate-800 rounded-2xl p-10 border border-slate-100 dark:border-slate-700 shadow-sm">
-                    <h2 class="text-2xl font-display font-bold mb-8 text-slate-900 dark:text-white">Repair Inquiry</h2>
-
-                    <form id="repairForm" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <!-- Name -->
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
-                                    for="name">Name</label>
-                                <input type="text" id="name" name="name" placeholder="John Doe"
-                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                                    required />
-                            </div>
-                            <!-- MacBook Model -->
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
-                                    for="model">MacBook Model</label>
-                                <input type="text" id="model" name="model" placeholder="e.g. MacBook Pro M2 14-inch"
-                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
-                            </div>
-                        </div>
-
-                        <!-- Issue Description -->
+                <!-- Contact Form -->
+                <div data-aos="fade-left">
+                    <h2 class="text-2xl font-display font-bold mb-8 text-slate-900 dark:text-white">Send a Repair
+                        Inquiry</h2>
+                    <form id="contactForm"
+                        class="space-y-6 bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700">
                         <div>
-                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
-                                for="issue">Issue Description</label>
-                            <textarea id="issue" name="issue" rows="5"
-                                placeholder="Briefly describe what's wrong with your Mac..."
-                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-y"
-                                required></textarea>
+                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Full
+                                Name</label>
+                            <input type="text" id="fullName" required
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent"
+                                placeholder="Your full name" />
                         </div>
-
-                        <!-- File Upload -->
                         <div>
-                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Upload
-                                Image/Video of fault</label>
-                            <div class="border-2 border-dashed border-slate-200 dark:border-slate-600 rounded-xl p-8 text-center hover:border-primary transition-colors cursor-pointer"
-                                id="uploadArea">
-                                <input type="file" id="fileInput" class="hidden" accept="image/*,video/*" multiple />
-                                <span
-                                    class="material-symbols-outlined text-4xl text-slate-400 mb-3 block">cloud_upload</span>
-                                <p class="text-slate-600 dark:text-slate-400">
-                                    <span class="text-primary font-semibold cursor-pointer">Click to upload</span> or
-                                    drag and drop
-                                </p>
-                                <p class="text-sm text-slate-400 mt-1">MP4, PNG, JPG (MAX. 50MB)</p>
-                            </div>
+                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Phone
+                                Number</label>
+                            <input type="tel" id="phone" required
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent"
+                                placeholder="07XX XXX XXX" />
                         </div>
-
-                        <!-- Submit Button -->
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">MacBook
+                                Model</label>
+                            <select id="macModel" required
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="">Select your MacBook model</option>
+                                <option>MacBook Pro (M3/M2/M1)</option>
+                                <option>MacBook Pro (Intel)</option>
+                                <option>MacBook Air (M3/M2/M1)</option>
+                                <option>MacBook Air (Intel)</option>
+                                <option>iMac</option>
+                                <option>Mac Mini / Studio</option>
+                                <option>Other / Not Sure</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Issue
+                                Type</label>
+                            <select id="issueType" required
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="">Select issue type</option>
+                                <option>Not Turning On / Dead</option>
+                                <option>Liquid Damage</option>
+                                <option>Screen Issue</option>
+                                <option>Keyboard Problem</option>
+                                <option>Data Recovery</option>
+                                <option>Battery Issue</option>
+                                <option>Slow Performance</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Describe
+                                the Problem</label>
+                            <textarea id="description" rows="4" required
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
+                                placeholder="Tell us what happened..."></textarea>
+                        </div>
                         <button type="submit"
-                            class="w-full bg-primary hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
-                            Submit Repair Request
+                            class="w-full bg-primary hover:bg-blue-600 text-white py-3.5 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
                             <span class="material-symbols-outlined">send</span>
+                            Send via WhatsApp
                         </button>
+                        <p class="text-xs text-slate-500 text-center">Your inquiry will be sent directly to Dennis via
+                            WhatsApp for a quick response.</p>
                     </form>
                 </div>
-
             </div>
         </div>
     </main>
@@ -277,36 +331,17 @@
                         <span class="text-xl font-display font-bold text-slate-900 dark:text-white">DENTECH
                             REPAIR</span>
                     </div>
-                    <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-                        Leading independent MacBook repair center specializing in high-end component restoration and
-                        data recovery services. Trusted, professional, and precise.
-                    </p>
-                    <div class="flex gap-4">
-                        <a class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
-                            href="#">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                                <path
-                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
-                                </path>
-                            </svg>
-                        </a>
-                        <a class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
-                            href="#">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                                <path
-                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z">
-                                </path>
-                            </svg>
-                        </a>
-                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">Leading independent MacBook
+                        repair center. Trusted, professional, and precise.</p>
                 </div>
                 <div>
                     <h4 class="font-bold text-slate-900 dark:text-white mb-6">Quick Links</h4>
                     <ul class="space-y-4 text-slate-600 dark:text-slate-400">
                         <li><a class="hover:text-primary transition-colors" href="index.html">Home</a></li>
                         <li><a class="hover:text-primary transition-colors" href="services.html">Services</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="blog.html">Blog</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="booking.html">Book Online</a></li>
                         <li><a class="hover:text-primary transition-colors" href="contact.html">Contact</a></li>
-                        <li><a class="hover:text-primary transition-colors" href="contact.html">Book Online</a></li>
                     </ul>
                 </div>
                 <div>
@@ -316,37 +351,32 @@
                         </li>
                         <li><a class="hover:text-primary transition-colors" href="services.html">MacBook Air Repair</a>
                         </li>
-                        <li><a class="hover:text-primary transition-colors" href="services.html">Logic Board Fix</a>
-                        </li>
                         <li><a class="hover:text-primary transition-colors" href="services.html">Data Recovery</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="services.html">Liquid Damage</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-bold text-slate-900 dark:text-white mb-6">Contact Us</h4>
                     <ul class="space-y-4 text-slate-600 dark:text-slate-400">
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary">person</span>
-                            <span>Dennis - Lead Tech</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary">call</span>
-                            <a class="hover:text-primary transition-colors" href="tel:0758409912">0758 409 912</a>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary">mail</span>
-                            <a class="hover:text-primary transition-colors"
-                                href="mailto:denisnjoroge180@gmail.com">denisnjoroge180@gmail.com</a>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary">schedule</span>
-                            <span>Mon - Sat: 9:00 - 18:00</span>
-                        </li>
+                        <li class="flex items-start gap-3"><span
+                                class="material-symbols-outlined text-primary">call</span><a
+                                class="hover:text-primary transition-colors" href="tel:0758409912">0758 409 912</a></li>
+                        <li class="flex items-start gap-3"><span
+                                class="material-symbols-outlined text-primary">mail</span><a
+                                class="hover:text-primary transition-colors"
+                                href="mailto:denisnjoroge180@gmail.com">denisnjoroge180@gmail.com</a></li>
+                        <li class="flex items-start gap-3"><span
+                                class="material-symbols-outlined text-primary">location_on</span><span>Bekim House,
+                                Crossway, Nairobi</span></li>
+                        <li class="flex items-start gap-3"><span
+                                class="material-symbols-outlined text-primary">schedule</span><span>Mon - Sat: 9:00 -
+                                18:00</span></li>
                     </ul>
                 </div>
             </div>
             <div
                 class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-                <p>&copy; 2024 Dentech Repair. All rights reserved. Not an authorized Apple Service Provider.</p>
+                <p>&copy; 2024 Dentech Repair. All rights reserved.</p>
                 <div class="flex gap-6">
                     <a class="hover:text-primary" href="#">Privacy Policy</a>
                     <a class="hover:text-primary" href="#">Terms of Service</a>
@@ -355,50 +385,49 @@
         </div>
     </footer>
 
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true; s1.src = 'https://embed.tawk.to/default/default';
+            s1.charset = 'UTF-8'; s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 80 });
+        window.addEventListener('load', () => { document.getElementById('pageLoader').classList.add('hidden'); });
+        function toggleDark() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+        if (localStorage.getItem('darkMode') === 'true') document.documentElement.classList.add('dark');
+        document.getElementById('darkToggle').addEventListener('click', toggleDark);
+        document.getElementById('darkToggleMobile').addEventListener('click', toggleDark);
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
         });
 
-        // File upload area
-        const uploadArea = document.getElementById('uploadArea');
-        const fileInput = document.getElementById('fileInput');
-        uploadArea.addEventListener('click', () => fileInput.click());
-        uploadArea.addEventListener('dragover', (e) => {
+        // Contact form → WhatsApp
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            uploadArea.classList.add('border-primary', 'bg-blue-50');
+            const name = document.getElementById('fullName').value;
+            const phone = document.getElementById('phone').value;
+            const model = document.getElementById('macModel').value;
+            const issue = document.getElementById('issueType').value;
+            const desc = document.getElementById('description').value;
+            const msg = `Hi Dennis, I need a MacBook repair.\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Model:* ${model}\n*Issue:* ${issue}\n*Details:* ${desc}`;
+            window.open('https://wa.me/message/LQPWHU2EV3P4I1?text=' + encodeURIComponent(msg), '_blank');
         });
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.classList.remove('border-primary', 'bg-blue-50');
-        });
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.classList.remove('border-primary', 'bg-blue-50');
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                fileInput.files = files;
-                uploadArea.querySelector('p').textContent = `${files.length} file(s) selected`;
-            }
-        });
-        fileInput.addEventListener('change', () => {
-            if (fileInput.files.length > 0) {
-                uploadArea.querySelector('p').innerHTML = `<span class="text-primary font-semibold">${fileInput.files.length} file(s) selected</span>`;
-            }
-        });
+    </script>
 
-        // Form submission
-        document.getElementById('repairForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const model = document.getElementById('model').value;
-            const issue = document.getElementById('issue').value;
-            const message = `Hi Dennis, my name is ${name}. I need help with my ${model || 'MacBook'}. Issue: ${issue}`;
-            const whatsappUrl = `https://wa.me/message/LQPWHU2EV3P4I1`;
-            window.open(whatsappUrl, '_blank');
-        });
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date()); gtag('config', 'G-XXXXXXXXXX');
     </script>
 
 </body>

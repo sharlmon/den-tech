@@ -5,53 +5,107 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Our Services | Dentech Repair | Professional MacBook Restoration</title>
+    <meta name="description"
+        content="Expert MacBook repair services: Logic board microsoldering, Apple Silicon M1/M2/M3 repair, liquid damage restoration, data recovery, screen & keyboard replacement. Nairobi." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Services | Dentech Repair — MacBook Specialists" />
+    <meta property="og:description"
+        content="Professional component-level MacBook repairs. Logic board, Apple Silicon, liquid damage, data recovery." />
+    <meta property="og:image" content="https://sharlmon.github.io/den-tech/logo.jpg.jpeg" />
+    <meta property="og:url" content="https://sharlmon.github.io/den-tech/services.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/jpeg" href="logo.jpg.jpeg" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "MacBook Repair",
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "Dentech Repair",
+            "telephone": "+254758409912",
+            "address": { "@type": "PostalAddress", "streetAddress": "Bekim House, Crossway", "addressLocality": "Nairobi", "addressCountry": "KE" }
+        },
+        "areaServed": "Nairobi",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "MacBook Repair Services",
+            "itemListElement": [
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Logic Board Microsoldering"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Apple Silicon Repair"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Liquid Damage Restoration"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Screen & Keyboard Replacement"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Data Recovery"}}
+            ]
+        }
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
-                    colors: {
-                        primary: "#007AFF",
-                        "background-light": "#F9FAFB",
-                        "background-dark": "#111827",
-                    },
-                    fontFamily: {
-                        display: ["Outfit", "Inter", "sans-serif"],
-                        sans: ["Inter", "sans-serif"],
-                    },
-                    borderRadius: {
-                        DEFAULT: "0.75rem",
-                    },
+                    colors: { primary: "#007AFF", "background-light": "#F9FAFB", "background-dark": "#111827" },
+                    fontFamily: { display: ["Outfit", "Inter", "sans-serif"], sans: ["Inter", "sans-serif"] },
+                    borderRadius: { DEFAULT: "0.75rem" },
                 },
             },
         };
     </script>
     <style type="text/tailwindcss">
-        .glass-effect {
-        backdrop-filter: blur(12px);
-        background: rgba(255, 255, 255, 0.8);
-    }
-    .dark .glass-effect {
-        background: rgba(17, 24, 39, 0.8);
-    }
-    .hero-gradient {
-        background: radial-gradient(circle at top right, rgba(0, 122, 255, 0.05), transparent),
-                    radial-gradient(circle at bottom left, rgba(0, 122, 255, 0.03), transparent);
-    }
-    .service-card:hover .service-image {
-        transform: scale(1.05);
-    }
-</style>
+        .glass-effect { backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.8); }
+        .dark .glass-effect { background: rgba(17, 24, 39, 0.8); }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(0, 122, 255, 0.05), transparent),
+                        radial-gradient(circle at bottom left, rgba(0, 122, 255, 0.03), transparent);
+        }
+        /* Interactive service cards */
+        .service-card { transition: all 0.4s cubic-bezier(0.4,0,0.2,1); }
+        .service-card:hover { transform: translateY(-8px); }
+        .service-card:hover .service-image { transform: scale(1.08); }
+        .service-card .service-overlay {
+            position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .service-card:hover .service-overlay { opacity: 1; }
+        .service-card .service-cta {
+            position: absolute; bottom: -60px; left: 50%; transform: translateX(-50%);
+            transition: bottom 0.3s ease; white-space: nowrap;
+        }
+        .service-card:hover .service-cta { bottom: 20px; }
+        /* Page loader */
+        .page-loader {
+            position: fixed; inset: 0; z-index: 9999;
+            background: #F9FAFB; display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .dark .page-loader { background: #111827; }
+        .page-loader.hidden { opacity: 0; visibility: hidden; }
+        .loader-spinner {
+            width: 48px; height: 48px; border: 4px solid #e5e7eb;
+            border-top-color: #007AFF; border-radius: 50%; animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
 </head>
 
 <body
     class="font-sans text-slate-900 bg-background-light dark:bg-background-dark dark:text-slate-100 selection:bg-primary selection:text-white">
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="text-center">
+            <div class="loader-spinner mx-auto mb-4"></div>
+            <p class="text-sm font-semibold text-primary tracking-wider">DENTECH REPAIR</p>
+        </div>
+    </div>
 
     <!-- Top Bar -->
     <div class="bg-slate-900 text-white py-2 px-4 text-center text-sm font-medium">
@@ -84,13 +138,29 @@
                     href="index.html">Home</a>
                 <a class="font-medium text-primary" href="services.html">Services</a>
                 <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                    href="blog.html">Blog</a>
+                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
                     href="contact.html">Contact</a>
+                <button id="darkToggle"
+                    class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                    title="Toggle dark mode">
+                    <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                </button>
                 <a class="bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg"
-                    href="contact.html">Book Diagnosis</a>
+                    href="booking.html">Book Diagnosis</a>
             </div>
-            <button id="mobileMenuBtn" class="md:hidden text-slate-900 dark:text-white">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
+            <div class="flex items-center gap-2 md:hidden">
+                <button id="darkToggleMobile"
+                    class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                    title="Toggle dark mode">
+                    <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                </button>
+                <button id="mobileMenuBtn" class="text-slate-900 dark:text-white">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
         </div>
         <div id="mobileMenu"
             class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
@@ -98,15 +168,17 @@
                 href="index.html">Home</a>
             <a class="block font-medium text-primary py-2" href="services.html">Services</a>
             <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+                href="blog.html">Blog</a>
+            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
                 href="contact.html">Contact</a>
             <a class="block bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-center"
-                href="contact.html">Book Diagnosis</a>
+                href="booking.html">Book Diagnosis</a>
         </div>
     </nav>
 
     <!-- Header -->
     <header class="pt-20 pb-16 hero-gradient">
-        <div class="container mx-auto px-4 text-center">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
             <div
                 class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary text-sm font-bold mb-6 border border-blue-100 dark:border-blue-800">
                 OUR EXPERTISE
@@ -125,15 +197,19 @@
         <section class="container mx-auto px-4" id="services">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Logic Board Repair -->
-                <div
-                    class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all flex flex-col group">
+                <div class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl flex flex-col group"
+                    data-aos="fade-up" data-aos-delay="0">
                     <div class="h-56 overflow-hidden relative">
                         <img alt="Logic Board Microsoldering"
                             class="service-image w-full h-full object-cover transition-transform duration-500"
                             src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&q=80" />
+                        <div class="service-overlay"></div>
                         <div
                             class="absolute top-4 left-4 bg-primary/90 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
                             Expert Level</div>
+                        <a href="contact.html"
+                            class="service-cta bg-primary text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">Get
+                            Quote →</a>
                     </div>
                     <div class="p-8 flex flex-col flex-grow">
                         <div class="flex items-center gap-3 mb-4">
@@ -153,15 +229,19 @@
                 </div>
 
                 <!-- Apple Silicon Repair -->
-                <div
-                    class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all flex flex-col group">
+                <div class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl flex flex-col group"
+                    data-aos="fade-up" data-aos-delay="100">
                     <div class="h-56 overflow-hidden relative">
                         <img alt="Apple Silicon Repair"
                             class="service-image w-full h-full object-cover transition-transform duration-500"
                             src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop&q=80" />
+                        <div class="service-overlay"></div>
                         <div
                             class="absolute top-4 left-4 bg-slate-900/90 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
                             M1 / M2 / M3</div>
+                        <a href="contact.html"
+                            class="service-cta bg-primary text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">Get
+                            Quote →</a>
                     </div>
                     <div class="p-8 flex flex-col flex-grow">
                         <div class="flex items-center gap-3 mb-4">
@@ -181,15 +261,19 @@
                 </div>
 
                 <!-- Liquid Damage Restoration -->
-                <div
-                    class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all flex flex-col group">
+                <div class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl flex flex-col group"
+                    data-aos="fade-up" data-aos-delay="200">
                     <div class="h-56 overflow-hidden relative">
                         <img alt="Liquid Damage Restoration"
                             class="service-image w-full h-full object-cover transition-transform duration-500"
                             src="https://images.unsplash.com/photo-1585399000684-d2f72660f092?w=600&h=400&fit=crop&q=80" />
+                        <div class="service-overlay"></div>
                         <div
                             class="absolute top-4 left-4 bg-red-500/90 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
                             Urgent</div>
+                        <a href="contact.html"
+                            class="service-cta bg-primary text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">Get
+                            Quote →</a>
                     </div>
                     <div class="p-8 flex flex-col flex-grow">
                         <div class="flex items-center gap-3 mb-4">
@@ -208,12 +292,16 @@
                 </div>
 
                 <!-- Screen & Keyboard -->
-                <div
-                    class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all flex flex-col group">
+                <div class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl flex flex-col group"
+                    data-aos="fade-up" data-aos-delay="0">
                     <div class="h-56 overflow-hidden relative">
-                        <img alt="Screen &amp; Keyboard Replacement"
+                        <img alt="Screen & Keyboard Replacement"
                             class="service-image w-full h-full object-cover transition-transform duration-500"
                             src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=400&fit=crop&q=80" />
+                        <div class="service-overlay"></div>
+                        <a href="contact.html"
+                            class="service-cta bg-primary text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">Get
+                            Quote →</a>
                     </div>
                     <div class="p-8 flex flex-col flex-grow">
                         <div class="flex items-center gap-3 mb-4">
@@ -232,15 +320,19 @@
                 </div>
 
                 <!-- Data Recovery -->
-                <div
-                    class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all flex flex-col group">
+                <div class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl flex flex-col group"
+                    data-aos="fade-up" data-aos-delay="100">
                     <div class="h-56 overflow-hidden relative">
                         <img alt="Data Recovery Service"
                             class="service-image w-full h-full object-cover transition-transform duration-500"
                             src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=600&h=400&fit=crop&q=80" />
+                        <div class="service-overlay"></div>
                         <div
                             class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
                             Critical</div>
+                        <a href="contact.html"
+                            class="service-cta bg-primary text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">Get
+                            Quote →</a>
                     </div>
                     <div class="p-8 flex flex-col flex-grow">
                         <div class="flex items-center gap-3 mb-4">
@@ -259,16 +351,15 @@
                 </div>
 
                 <!-- Custom Repair Request -->
-                <div
-                    class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 border-dashed dark:border-slate-700 flex flex-col items-center justify-center p-8 text-center group">
+                <div class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 border-dashed dark:border-slate-700 flex flex-col items-center justify-center p-8 text-center group"
+                    data-aos="fade-up" data-aos-delay="200">
                     <div
                         class="w-16 h-16 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center text-primary mb-6">
                         <span class="material-symbols-outlined text-3xl">construction</span>
                     </div>
                     <h3 class="text-xl font-bold dark:text-white mb-4">Custom Repair Request</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">
-                        Have a unique problem or a vintage model? Contact Dennis directly for a custom consultation.
-                    </p>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Have a unique problem or a vintage model?
+                        Contact Dennis directly for a custom consultation.</p>
                     <a class="bg-primary text-white px-6 py-2 rounded-full font-bold text-sm hover:shadow-lg transition-all"
                         href="tel:0758409912">Call Now</a>
                 </div>
@@ -279,63 +370,58 @@
         <section class="py-24 mt-16 bg-slate-50 dark:bg-slate-900/50">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-16">
+                    <div class="text-center mb-16" data-aos="fade-up">
                         <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Why Choose Us?</h2>
                         <p class="text-slate-600 dark:text-slate-400">The difference between "Replace Everything" and
                             "Repair What's Broken".</p>
                     </div>
                     <div class="grid md:grid-cols-2 gap-12">
-                        <div class="flex gap-4">
+                        <div class="flex gap-4" data-aos="fade-up" data-aos-delay="0">
                             <div
                                 class="flex-shrink-0 w-12 h-12 bg-white dark:bg-slate-800 shadow-sm rounded-xl flex items-center justify-center text-primary">
                                 <span class="material-symbols-outlined">magnification_small</span>
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold mb-2 dark:text-white">Component-Level Repair</h4>
-                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                    Most shops and official centers only offer "Tiered Repair" or whole-unit
-                                    replacements. We dive deep into the circuitry, replacing a $5 chip instead of a $800
-                                    logic board.
-                                </p>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Most shops only
+                                    offer whole-unit replacements. We dive deep into the circuitry, replacing a $5 chip
+                                    instead of a $800 logic board.</p>
                             </div>
                         </div>
-                        <div class="flex gap-4">
+                        <div class="flex gap-4" data-aos="fade-up" data-aos-delay="100">
                             <div
                                 class="flex-shrink-0 w-12 h-12 bg-white dark:bg-slate-800 shadow-sm rounded-xl flex items-center justify-center text-primary">
                                 <span class="material-symbols-outlined">savings</span>
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold mb-2 dark:text-white">Significant Cost Savings</h4>
-                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                    By repairing individual parts, we typically save our customers 50-70% compared to
-                                    official repair center quotes, while maintaining the same performance.
-                                </p>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">We typically save
+                                    customers 50-70% compared to official repair center quotes, while maintaining the
+                                    same performance.</p>
                             </div>
                         </div>
-                        <div class="flex gap-4">
+                        <div class="flex gap-4" data-aos="fade-up" data-aos-delay="200">
                             <div
                                 class="flex-shrink-0 w-12 h-12 bg-white dark:bg-slate-800 shadow-sm rounded-xl flex items-center justify-center text-primary">
                                 <span class="material-symbols-outlined">security</span>
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold mb-2 dark:text-white">Data Preservation</h4>
-                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                    Whole-unit swaps mean you lose your data. Our repair-first approach prioritizes
-                                    getting your existing hardware to boot so your files remain intact.
-                                </p>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Whole-unit swaps
+                                    mean you lose your data. Our repair-first approach prioritizes getting your existing
+                                    hardware to boot so your files remain intact.</p>
                             </div>
                         </div>
-                        <div class="flex gap-4">
+                        <div class="flex gap-4" data-aos="fade-up" data-aos-delay="300">
                             <div
                                 class="flex-shrink-0 w-12 h-12 bg-white dark:bg-slate-800 shadow-sm rounded-xl flex items-center justify-center text-primary">
                                 <span class="material-symbols-outlined">history_edu</span>
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold mb-2 dark:text-white">Expert Diagnosis</h4>
-                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                    Dennis brings years of specialized experience in MacBook board design. You get a
-                                    detailed explanation of what failed and why, not just a generic error code.
-                                </p>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Dennis brings
+                                    years of specialized experience in MacBook board design. You get a detailed
+                                    explanation of what failed and why.</p>
                             </div>
                         </div>
                     </div>
@@ -367,35 +453,16 @@
                         <span class="text-xl font-display font-bold text-slate-900 dark:text-white">DENTECH
                             REPAIR</span>
                     </div>
-                    <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-                        Leading independent MacBook repair center specializing in high-end component restoration and
-                        data recovery services. Trusted, professional, and precise.
-                    </p>
-                    <div class="flex gap-4">
-                        <a class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
-                            href="#">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                                <path
-                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
-                                </path>
-                            </svg>
-                        </a>
-                        <a class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
-                            href="#">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                                <path
-                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z">
-                                </path>
-                            </svg>
-                        </a>
-                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">Leading independent MacBook
+                        repair center. Trusted, professional, and precise.</p>
                 </div>
                 <div>
-                    <h4 class="font-bold text-slate-900 dark:text-white mb-6">Explore</h4>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-6">Quick Links</h4>
                     <ul class="space-y-4 text-slate-600 dark:text-slate-400">
                         <li><a class="hover:text-primary transition-colors" href="index.html">Home</a></li>
-                        <li><a class="hover:text-primary transition-colors" href="services.html">Our Services</a></li>
-                        <li><a class="hover:text-primary transition-colors" href="contact.html">Book Online</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="services.html">Services</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="blog.html">Blog</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="booking.html">Book Online</a></li>
                         <li><a class="hover:text-primary transition-colors" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -411,29 +478,28 @@
                 <div>
                     <h4 class="font-bold text-slate-900 dark:text-white mb-6">Contact Us</h4>
                     <ul class="space-y-4 text-slate-600 dark:text-slate-400">
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary">person</span>
-                            <span>Dennis - Lead Tech</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary">call</span>
-                            <a class="hover:text-primary transition-colors" href="tel:0758409912">0758 409 912</a>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary">mail</span>
-                            <a class="hover:text-primary transition-colors"
-                                href="mailto:denisnjoroge180@gmail.com">denisnjoroge180@gmail.com</a>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary">schedule</span>
-                            <span>Mon - Sat: 9:00 - 18:00</span>
-                        </li>
+                        <li class="flex items-start gap-3"><span
+                                class="material-symbols-outlined text-primary">person</span><span>Dennis - Lead
+                                Tech</span></li>
+                        <li class="flex items-start gap-3"><span
+                                class="material-symbols-outlined text-primary">call</span><a
+                                class="hover:text-primary transition-colors" href="tel:0758409912">0758 409 912</a></li>
+                        <li class="flex items-start gap-3"><span
+                                class="material-symbols-outlined text-primary">mail</span><a
+                                class="hover:text-primary transition-colors"
+                                href="mailto:denisnjoroge180@gmail.com">denisnjoroge180@gmail.com</a></li>
+                        <li class="flex items-start gap-3"><span
+                                class="material-symbols-outlined text-primary">location_on</span><span>Bekim House,
+                                Crossway, Nairobi</span></li>
+                        <li class="flex items-start gap-3"><span
+                                class="material-symbols-outlined text-primary">schedule</span><span>Mon - Sat: 9:00 -
+                                18:00</span></li>
                     </ul>
                 </div>
             </div>
             <div
                 class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-                <p>&copy; 2024 Dentech Repair. All rights reserved. Not an authorized Apple Service Provider.</p>
+                <p>&copy; 2024 Dentech Repair. All rights reserved.</p>
                 <div class="flex gap-6">
                     <a class="hover:text-primary" href="#">Privacy Policy</a>
                     <a class="hover:text-primary" href="#">Terms of Service</a>
@@ -442,12 +508,38 @@
         </div>
     </footer>
 
+    <!-- Tawk.to Live Chat -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true; s1.src = 'https://embed.tawk.to/default/default';
+            s1.charset = 'UTF-8'; s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 80 });
+        window.addEventListener('load', () => { document.getElementById('pageLoader').classList.add('hidden'); });
+        function toggleDark() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+        if (localStorage.getItem('darkMode') === 'true') document.documentElement.classList.add('dark');
+        document.getElementById('darkToggle').addEventListener('click', toggleDark);
+        document.getElementById('darkToggleMobile').addEventListener('click', toggleDark);
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
         });
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date()); gtag('config', 'G-XXXXXXXXXX');
     </script>
 
 </body>

@@ -4,13 +4,74 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Dentech Repair | Advanced MacBook Repair Service</title>
+    <title>Dentech Repair | Advanced MacBook Repair Service in Nairobi</title>
+    <meta name="description"
+        content="Dentech Repair — Nairobi's trusted MacBook repair specialist. Logic board microsoldering, Apple Silicon repair, data recovery & liquid damage restoration. Free diagnosis. Call Dennis: 0758 409 912." />
+    <meta name="keywords"
+        content="MacBook repair Nairobi, logic board repair, Apple Silicon repair, data recovery, liquid damage repair, MacBook screen replacement, Dentech Repair" />
+    <meta name="author" content="Dentech Repair" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Dentech Repair | Advanced MacBook Repair Service" />
+    <meta property="og:description"
+        content="From precision micro-soldering to critical data recovery, we fix what others can't. Premium MacBook repair in Nairobi." />
+    <meta property="og:image" content="https://sharlmon.github.io/den-tech/logo.jpg.jpeg" />
+    <meta property="og:url" content="https://sharlmon.github.io/den-tech/" />
+    <meta property="og:site_name" content="Dentech Repair" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dentech Repair | Advanced MacBook Repair Service" />
+    <meta name="twitter:description"
+        content="Trusted MacBook repair specialists in Nairobi. Free diagnosis available." />
+    <meta name="twitter:image" content="https://sharlmon.github.io/den-tech/logo.jpg.jpeg" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg.jpeg" />
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Dentech Repair",
+        "image": "https://sharlmon.github.io/den-tech/logo.jpg.jpeg",
+        "description": "Advanced MacBook repair service in Nairobi specializing in logic board microsoldering, Apple Silicon repair, data recovery and liquid damage restoration.",
+        "@id": "https://sharlmon.github.io/den-tech/",
+        "url": "https://sharlmon.github.io/den-tech/",
+        "telephone": "+254758409912",
+        "email": "denisnjoroge180@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Bekim House, Crossway",
+            "addressLocality": "Nairobi",
+            "addressCountry": "KE"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -1.2665125,
+            "longitude": 36.8047344
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "opens": "09:00",
+            "closes": "18:00"
+        },
+        "priceRange": "$$",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "500"
+        }
+    }
+    </script>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
+    <!-- AOS Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <script>
         tailwind.config = {
             darkMode: "class",
@@ -34,54 +95,101 @@
     </script>
     <style type="text/tailwindcss">
         .glass-effect {
-        backdrop-filter: blur(12px);
-        background: rgba(255, 255, 255, 0.8);
-    }
-    .dark .glass-effect {
-        background: rgba(17, 24, 39, 0.8);
-    }
-    .hero-gradient {
-        background: radial-gradient(circle at top right, rgba(0, 122, 255, 0.05), transparent),
-                    radial-gradient(circle at bottom left, rgba(0, 122, 255, 0.03), transparent);
-    }
-    .hero-overlay {
-        position: relative;
-        overflow: hidden;
-    }
-    .hero-overlay::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.75) 100%);
-        z-index: 1;
-    }
-    .hero-overlay > * {
-        position: relative;
-        z-index: 2;
-    }
-    .capability-card {
-        transition: all 0.3s ease;
-    }
-    .capability-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    }
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in-up {
-        animation: fadeInUp 0.6s ease forwards;
-    }
-    .animate-delay-100 { animation-delay: 0.1s; }
-    .animate-delay-200 { animation-delay: 0.2s; }
-    .animate-delay-300 { animation-delay: 0.3s; }
-    .animate-delay-400 { animation-delay: 0.4s; }
-</style>
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.8);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(0, 122, 255, 0.05), transparent),
+                        radial-gradient(circle at bottom left, rgba(0, 122, 255, 0.03), transparent);
+        }
+        .hero-overlay {
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-overlay::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.75) 100%);
+            z-index: 1;
+        }
+        .hero-overlay > * {
+            position: relative;
+            z-index: 2;
+        }
+        .capability-card {
+            transition: all 0.3s ease;
+        }
+        .capability-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        .animate-delay-100 { animation-delay: 0.1s; }
+        .animate-delay-200 { animation-delay: 0.2s; }
+        .animate-delay-300 { animation-delay: 0.3s; }
+        .animate-delay-400 { animation-delay: 0.4s; }
+        /* Page loader */
+        .page-loader {
+            position: fixed; inset: 0; z-index: 9999;
+            background: #F9FAFB;
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .dark .page-loader { background: #111827; }
+        .page-loader.hidden { opacity: 0; visibility: hidden; }
+        .loader-spinner {
+            width: 48px; height: 48px;
+            border: 4px solid #e5e7eb;
+            border-top-color: #007AFF;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        /* Before/After slider */
+        .ba-slider { position: relative; overflow: hidden; cursor: col-resize; }
+        .ba-slider .ba-after { position: absolute; inset: 0; overflow: hidden; }
+        .ba-slider .ba-handle {
+            position: absolute; top: 0; bottom: 0; width: 4px;
+            background: #007AFF; cursor: col-resize; z-index: 10;
+        }
+        .ba-slider .ba-handle::after {
+            content: '⟨⟩'; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: #007AFF; color: white; border-radius: 50%;
+            width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+            font-size: 14px; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        /* FAQ accordion */
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.active .faq-answer { max-height: 300px; }
+        .faq-item.active .faq-chevron { transform: rotate(180deg); }
+        .faq-chevron { transition: transform 0.3s ease; }
+        /* Testimonial card */
+        .testimonial-card { transition: all 0.3s ease; }
+        .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+    </style>
 </head>
 
 <body
     class="font-sans text-slate-900 bg-background-light dark:bg-background-dark dark:text-slate-100 selection:bg-primary selection:text-white">
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="text-center">
+            <div class="loader-spinner mx-auto mb-4"></div>
+            <p class="text-sm font-semibold text-primary tracking-wider">DENTECH REPAIR</p>
+        </div>
+    </div>
 
     <!-- Top Bar -->
     <div class="bg-slate-900 text-white py-2 px-4 text-center text-sm font-medium">
@@ -114,25 +222,42 @@
                 <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
                     href="services.html">Services</a>
                 <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                    href="blog.html">Blog</a>
+                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
                     href="contact.html">Contact</a>
+                <!-- Dark Mode Toggle -->
+                <button id="darkToggle"
+                    class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                    title="Toggle dark mode">
+                    <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                </button>
                 <a class="bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg"
-                    href="contact.html">Book Diagnosis</a>
+                    href="booking.html">Book Diagnosis</a>
             </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobileMenuBtn" class="md:hidden text-slate-900 dark:text-white">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
+            <div class="flex items-center gap-2 md:hidden">
+                <button id="darkToggleMobile"
+                    class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                    title="Toggle dark mode">
+                    <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                </button>
+                <button id="mobileMenuBtn" class="text-slate-900 dark:text-white">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
         </div>
-        <!-- Mobile Menu -->
         <div id="mobileMenu"
             class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
             <a class="block font-medium text-primary py-2" href="index.html">Home</a>
             <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
                 href="services.html">Services</a>
             <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+                href="blog.html">Blog</a>
+            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
                 href="contact.html">Contact</a>
             <a class="block bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-center"
-                href="contact.html">Book Diagnosis</a>
+                href="booking.html">Book Diagnosis</a>
         </div>
     </nav>
 
@@ -157,7 +282,7 @@
                 </p>
                 <div class="flex flex-wrap gap-4 mb-12 animate-fade-in-up animate-delay-300">
                     <a class="bg-primary hover:bg-blue-600 text-white px-8 py-3.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-xl flex items-center gap-2"
-                        href="contact.html">
+                        href="booking.html">
                         Book a Free Diagnosis
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
@@ -197,7 +322,7 @@
     <!-- Expert Repair Capabilities Section -->
     <section class="py-24 bg-white dark:bg-slate-900">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-display font-bold mb-4 text-slate-900 dark:text-white">Expert
                     Repair Capabilities</h2>
                 <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
@@ -206,9 +331,8 @@
                 </p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Logic Board Microsoldering -->
-                <div
-                    class="capability-card bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700">
+                <div class="capability-card bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700"
+                    data-aos="fade-up" data-aos-delay="0">
                     <div
                         class="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6">
                         <span class="material-symbols-outlined text-3xl">memory</span>
@@ -219,9 +343,8 @@
                         microscopy.
                     </p>
                 </div>
-                <!-- Apple Silicon Repair -->
-                <div
-                    class="capability-card bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700">
+                <div class="capability-card bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700"
+                    data-aos="fade-up" data-aos-delay="100">
                     <div
                         class="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6">
                         <span class="material-symbols-outlined text-3xl">computer</span>
@@ -232,9 +355,8 @@
                         chips.
                     </p>
                 </div>
-                <!-- Data Recovery -->
-                <div
-                    class="capability-card bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700">
+                <div class="capability-card bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700"
+                    data-aos="fade-up" data-aos-delay="200">
                     <div
                         class="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6">
                         <span class="material-symbols-outlined text-3xl">database</span>
@@ -245,9 +367,8 @@
                         safe.
                     </p>
                 </div>
-                <!-- Liquid Damage Cleaning -->
-                <div
-                    class="capability-card bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700">
+                <div class="capability-card bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700"
+                    data-aos="fade-up" data-aos-delay="300">
                     <div
                         class="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6">
                         <span class="material-symbols-outlined text-3xl">opacity</span>
@@ -261,8 +382,234 @@
         </div>
     </section>
 
+    <!-- Before & After Gallery -->
+    <section class="py-24 bg-slate-50 dark:bg-slate-800/50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span
+                    class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4 border border-primary/20">OUR
+                    RESULTS</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4 text-slate-900 dark:text-white">Before &
+                    After</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">See the quality of our repair work —
+                    from heavily damaged boards to fully restored machines.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="0">
+                    <div class="ba-slider h-64 select-none" data-position="50">
+                        <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=600&h=400&fit=crop&q=80"
+                            alt="Corroded logic board" class="w-full h-full object-cover" />
+                        <div class="ba-after" style="width:50%">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&q=80"
+                                alt="Restored logic board" class="w-full h-full object-cover" />
+                        </div>
+                        <div class="ba-handle" style="left:50%"></div>
+                    </div>
+                    <div class="p-4 bg-white dark:bg-slate-800 text-center">
+                        <p class="font-bold text-slate-900 dark:text-white">Logic Board Restoration</p>
+                        <p class="text-sm text-slate-500">Corrosion damage → Fully functional</p>
+                    </div>
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="ba-slider h-64 select-none" data-position="50">
+                        <img src="https://images.unsplash.com/photo-1585399000684-d2f72660f092?w=600&h=400&fit=crop&q=80"
+                            alt="Water damaged MacBook" class="w-full h-full object-cover" />
+                        <div class="ba-after" style="width:50%">
+                            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=400&fit=crop&q=80"
+                                alt="Restored MacBook" class="w-full h-full object-cover" />
+                        </div>
+                        <div class="ba-handle" style="left:50%"></div>
+                    </div>
+                    <div class="p-4 bg-white dark:bg-slate-800 text-center">
+                        <p class="font-bold text-slate-900 dark:text-white">Liquid Damage Recovery</p>
+                        <p class="text-sm text-slate-500">Water spill → Full cleanup & repair</p>
+                    </div>
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ba-slider h-64 select-none" data-position="50">
+                        <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=600&h=400&fit=crop&q=80"
+                            alt="Failed hard drive" class="w-full h-full object-cover" />
+                        <div class="ba-after" style="width:50%">
+                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop&q=80"
+                                alt="Data recovered" class="w-full h-full object-cover" />
+                        </div>
+                        <div class="ba-handle" style="left:50%"></div>
+                    </div>
+                    <div class="p-4 bg-white dark:bg-slate-800 text-center">
+                        <p class="font-bold text-slate-900 dark:text-white">Data Recovery</p>
+                        <p class="text-sm text-slate-500">Dead SSD → All files recovered</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Testimonials -->
+    <section class="py-24 bg-white dark:bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span
+                    class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4 border border-primary/20">TESTIMONIALS</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4 text-slate-900 dark:text-white">What Our
+                    Customers Say</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Real feedback from MacBook owners who
+                    trusted us with their devices.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="testimonial-card bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700"
+                    data-aos="fade-up" data-aos-delay="0">
+                    <div class="flex gap-1 mb-4 text-yellow-400">★★★★★</div>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed italic">"Dennis saved my MacBook
+                        Pro when Apple Store said it was beyond repair. The logic board was fixed in 2 days and cost a
+                        fraction of a replacement. Absolutely brilliant work!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                            <span class="text-primary font-bold">JM</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-900 dark:text-white">James Mwangi</p>
+                            <p class="text-sm text-slate-500">MacBook Pro 2021 — Logic Board</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex gap-1 mb-4 text-yellow-400">★★★★★</div>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed italic">"Spilled coffee on my
+                        MacBook Air and was devastated. Dennis did ultrasonic cleaning and saved everything — even my
+                        data! Highly recommend Dentech for any liquid damage."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
+                            <span class="text-green-600 font-bold">SW</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-900 dark:text-white">Sarah Wanjiku</p>
+                            <p class="text-sm text-slate-500">MacBook Air M2 — Liquid Damage</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex gap-1 mb-4 text-yellow-400">★★★★★</div>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed italic">"My MacBook wouldn't boot
+                        and I had years of photos on it. Dennis recovered every single file. Professional, honest, and
+                        fast. The best repair specialist in Nairobi, hands down."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center">
+                            <span class="text-purple-600 font-bold">PO</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-900 dark:text-white">Peter Ochieng</p>
+                            <p class="text-sm text-slate-500">MacBook Pro M1 — Data Recovery</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-slate-50 dark:bg-slate-800/50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span
+                    class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4 border border-primary/20">FAQ</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4 text-slate-900 dark:text-white">Frequently
+                    Asked Questions</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Everything you need to know about our
+                    repair services.</p>
+            </div>
+            <div class="max-w-3xl mx-auto space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <div
+                    class="faq-item bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <span class="font-semibold text-slate-900 dark:text-white">How long does a typical repair
+                            take?</span>
+                        <span class="material-symbols-outlined faq-chevron text-primary">expand_more</span>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Most repairs are completed within
+                            24-72 hours. Simple fixes like screen replacements can be done same-day. Complex logic board
+                            repairs may take 3-5 days depending on parts availability. We'll always give you an accurate
+                            timeline after diagnosis.</p>
+                    </div>
+                </div>
+                <div
+                    class="faq-item bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <span class="font-semibold text-slate-900 dark:text-white">Is the diagnosis really free?</span>
+                        <span class="material-symbols-outlined faq-chevron text-primary">expand_more</span>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Yes! We offer completely free
+                            diagnostics. We'll examine your MacBook, identify the exact issue, and give you a clear
+                            quote before any work begins. There's no obligation to proceed with the repair.</p>
+                    </div>
+                </div>
+                <div
+                    class="faq-item bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <span class="font-semibold text-slate-900 dark:text-white">Do you offer a warranty on
+                            repairs?</span>
+                        <span class="material-symbols-outlined faq-chevron text-primary">expand_more</span>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Absolutely. All our repairs come
+                            with a 90-day warranty covering the specific work performed. If the same issue recurs within
+                            the warranty period, we'll fix it at no additional cost.</p>
+                    </div>
+                </div>
+                <div
+                    class="faq-item bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <span class="font-semibold text-slate-900 dark:text-white">Is my data safe during repair?</span>
+                        <span class="material-symbols-outlined faq-chevron text-primary">expand_more</span>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Your data privacy is our top
+                            priority. We never access personal files unless data recovery is specifically requested. All
+                            repairs are done with data preservation in mind, and we recommend backing up before bringing
+                            in your device when possible.</p>
+                    </div>
+                </div>
+                <div
+                    class="faq-item bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <span class="font-semibold text-slate-900 dark:text-white">What payment methods do you
+                            accept?</span>
+                        <span class="material-symbols-outlined faq-chevron text-primary">expand_more</span>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">We accept M-Pesa, cash, and bank
+                            transfers. Payment is only required after the repair is complete and you've confirmed that
+                            everything works to your satisfaction.</p>
+                    </div>
+                </div>
+                <div
+                    class="faq-item bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <span class="font-semibold text-slate-900 dark:text-white">Where is your workshop
+                            located?</span>
+                        <span class="material-symbols-outlined faq-chevron text-primary">expand_more</span>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">We're located at Bekim House,
+                            Crossway, Nairobi. You can find us on Google Maps or WhatsApp us for directions. We're open
+                            Monday to Saturday, 9:00 AM – 6:00 PM.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
-    <section class="py-16 bg-slate-900">
+    <section class="py-16 bg-slate-900" data-aos="fade-up">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center justify-between gap-8">
                 <div>
@@ -279,7 +626,7 @@
                         <p class="text-slate-500 text-sm mt-1">Contact Dennis Directly</p>
                     </div>
                     <a class="bg-primary hover:bg-blue-600 text-white px-8 py-3.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-xl flex items-center gap-2 whitespace-nowrap"
-                        href="contact.html">
+                        href="booking.html">
                         Get Started
                         <span class="material-symbols-outlined text-sm">bolt</span>
                     </a>
@@ -339,7 +686,8 @@
                     <ul class="space-y-4 text-slate-600 dark:text-slate-400">
                         <li><a class="hover:text-primary transition-colors" href="index.html">Home</a></li>
                         <li><a class="hover:text-primary transition-colors" href="services.html">Services</a></li>
-                        <li><a class="hover:text-primary transition-colors" href="contact.html">Book Online</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="blog.html">Blog</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="booking.html">Book Online</a></li>
                         <li><a class="hover:text-primary transition-colors" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -372,6 +720,10 @@
                                 href="mailto:denisnjoroge180@gmail.com">denisnjoroge180@gmail.com</a>
                         </li>
                         <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary">location_on</span>
+                            <span>Bekim House, Crossway, Nairobi</span>
+                        </li>
+                        <li class="flex items-start gap-3">
                             <span class="material-symbols-outlined text-primary">schedule</span>
                             <span>Mon - Sat: 9:00 - 18:00</span>
                         </li>
@@ -389,13 +741,72 @@
         </div>
     </footer>
 
+    <!-- Tawk.to Live Chat -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/default/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        // Initialize AOS
+        AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 80 });
+
+        // Page Loader
+        window.addEventListener('load', () => {
+            document.getElementById('pageLoader').classList.add('hidden');
         });
+
+        // Dark Mode Toggle
+        function toggleDark() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+        if (localStorage.getItem('darkMode') === 'true') document.documentElement.classList.add('dark');
+        document.getElementById('darkToggle').addEventListener('click', toggleDark);
+        document.getElementById('darkToggleMobile').addEventListener('click', toggleDark);
+
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        // Before/After Sliders
+        document.querySelectorAll('.ba-slider').forEach(slider => {
+            const handle = slider.querySelector('.ba-handle');
+            const afterDiv = slider.querySelector('.ba-after');
+            let isDragging = false;
+            const move = (x) => {
+                const rect = slider.getBoundingClientRect();
+                let pos = ((x - rect.left) / rect.width) * 100;
+                pos = Math.max(0, Math.min(100, pos));
+                handle.style.left = pos + '%';
+                afterDiv.style.width = pos + '%';
+            };
+            slider.addEventListener('mousedown', (e) => { isDragging = true; move(e.clientX); });
+            window.addEventListener('mousemove', (e) => { if (isDragging) move(e.clientX); });
+            window.addEventListener('mouseup', () => { isDragging = false; });
+            slider.addEventListener('touchstart', (e) => { isDragging = true; move(e.touches[0].clientX); });
+            window.addEventListener('touchmove', (e) => { if (isDragging) move(e.touches[0].clientX); });
+            window.addEventListener('touchend', () => { isDragging = false; });
+        });
+    </script>
+
+    <!-- Google Analytics placeholder — replace G-XXXXXXXXXX with your real ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
     </script>
 
 </body>

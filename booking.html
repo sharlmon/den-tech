@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Book a Diagnosis | Dentech Repair | Schedule Your MacBook Repair</title>
+    <meta name="description"
+        content="Book a free MacBook diagnosis at Dentech Repair, Nairobi. Choose your preferred date and time. Same-day slots available." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Book a Free Diagnosis — Dentech Repair" />
+    <meta property="og:description"
+        content="Schedule your MacBook diagnosis. Choose a date and time that works for you." />
+    <meta property="og:image" content="https://sharlmon.github.io/den-tech/logo.jpg.jpeg" />
+    <meta property="og:url" content="https://sharlmon.github.io/den-tech/booking.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/jpeg" href="logo.jpg.jpeg" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: { primary: "#007AFF", "background-light": "#F9FAFB", "background-dark": "#111827" },
+                    fontFamily: { display: ["Outfit", "Inter", "sans-serif"], sans: ["Inter", "sans-serif"] },
+                    borderRadius: { DEFAULT: "0.75rem" },
+                },
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        .glass-effect { backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.8); }
+        .dark .glass-effect { background: rgba(17, 24, 39, 0.8); }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(0, 122, 255, 0.05), transparent),
+                        radial-gradient(circle at bottom left, rgba(0, 122, 255, 0.03), transparent);
+        }
+        .page-loader { position: fixed; inset: 0; z-index: 9999; background: #F9FAFB; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
+        .dark .page-loader { background: #111827; }
+        .page-loader.hidden { opacity: 0; visibility: hidden; }
+        .loader-spinner { width: 48px; height: 48px; border: 4px solid #e5e7eb; border-top-color: #007AFF; border-radius: 50%; animation: spin 0.7s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .time-slot { transition: all 0.2s ease; }
+        .time-slot:hover { transform: scale(1.05); }
+        .time-slot.selected { background-color: #007AFF !important; color: white !important; border-color: #007AFF !important; }
+        .step-indicator { transition: all 0.3s ease; }
+        .step-indicator.active { background-color: #007AFF; color: white; }
+        .step-indicator.completed { background-color: #22c55e; color: white; }
+    </style>
+</head>
+
+<body
+    class="font-sans text-slate-900 bg-background-light dark:bg-background-dark dark:text-slate-100 selection:bg-primary selection:text-white">
+
+    <div class="page-loader" id="pageLoader">
+        <div class="text-center">
+            <div class="loader-spinner mx-auto mb-4"></div>
+            <p class="text-sm font-semibold text-primary tracking-wider">DENTECH REPAIR</p>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="bg-slate-900 text-white py-2 px-4 text-center text-sm font-medium">
+        <div class="container mx-auto flex justify-center items-center gap-6">
+            <span class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">call</span>
+                Dennis: <a class="hover:text-primary transition-colors" href="tel:0758409912">0758 409 912</a>
+            </span>
+            <span class="hidden md:flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm text-yellow-400">verified</span>
+                Licensed &amp; Insured MacBook Specialist
+            </span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass-effect border-b border-slate-200 dark:border-slate-800">
+        <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img alt="Dentech Logo" class="h-10 w-10 rounded-lg shadow-sm" src="logo.jpg.jpeg" />
+                <div>
+                    <span
+                        class="text-2xl font-display font-bold tracking-tight text-slate-900 dark:text-white leading-none block">DENTECH</span>
+                    <span class="text-[10px] uppercase tracking-[0.2em] font-semibold text-primary">Repair
+                        Specialist</span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                    href="index.html">Home</a>
+                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                    href="services.html">Services</a>
+                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                    href="blog.html">Blog</a>
+                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                    href="contact.html">Contact</a>
+                <button id="darkToggle"
+                    class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                    title="Toggle dark mode">
+                    <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                </button>
+                <a class="bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg"
+                    href="booking.html">Book Diagnosis</a>
+            </div>
+            <div class="flex items-center gap-2 md:hidden">
+                <button id="darkToggleMobile"
+                    class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                    title="Toggle dark mode">
+                    <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                </button>
+                <button id="mobileMenuBtn" class="text-slate-900 dark:text-white">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
+            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+                href="index.html">Home</a>
+            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+                href="services.html">Services</a>
+            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+                href="blog.html">Blog</a>
+            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+                href="contact.html">Contact</a>
+            <a class="block bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-center"
+                href="booking.html">Book Diagnosis</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-20 pb-16 hero-gradient">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-sm font-bold mb-6 border border-green-100 dark:border-green-800">
+                <span class="material-symbols-outlined text-sm">event_available</span>
+                FREE DIAGNOSIS
+            </div>
+            <h1 class="text-4xl md:text-6xl font-display font-bold text-slate-900 dark:text-white mb-6">Book Your
+                Diagnosis</h1>
+            <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                Schedule a free MacBook diagnosis at our workshop. Pick your preferred date and time, and we'll have
+                everything ready for you.
+            </p>
+        </div>
+    </header>
+
+    <!-- Booking Form -->
+    <main class="py-16">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <!-- Step Indicators -->
+            <div class="flex items-center justify-center gap-4 mb-12" data-aos="fade-up">
+                <div class="step-indicator active w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm"
+                    id="step1Ind">1</div>
+                <div class="w-16 h-0.5 bg-slate-200 dark:bg-slate-700"></div>
+                <div class="step-indicator w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center font-bold text-sm text-slate-500"
+                    id="step2Ind">2</div>
+                <div class="w-16 h-0.5 bg-slate-200 dark:bg-slate-700"></div>
+                <div class="step-indicator w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center font-bold text-sm text-slate-500"
+                    id="step3Ind">3</div>
+            </div>
+
+            <!-- Step 1: Device Info -->
+            <div id="step1"
+                class="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700 shadow-sm"
+                data-aos="fade-up">
+                <h2 class="text-xl font-bold mb-6 dark:text-white flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">laptop_mac</span>
+                    Device Information
+                </h2>
+                <div class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Full Name
+                            *</label>
+                        <input type="text" id="bkName" required
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary"
+                            placeholder="Your full name" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Phone Number
+                            *</label>
+                        <input type="tel" id="bkPhone" required
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary"
+                            placeholder="07XX XXX XXX" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">MacBook Model
+                            *</label>
+                        <select id="bkModel" required
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary">
+                            <option value="">Select your model</option>
+                            <option>MacBook Pro (M3/M2/M1)</option>
+                            <option>MacBook Pro (Intel)</option>
+                            <option>MacBook Air (M3/M2/M1)</option>
+                            <option>MacBook Air (Intel)</option>
+                            <option>iMac</option>
+                            <option>Mac Mini / Studio</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Describe the
+                            Issue *</label>
+                        <textarea id="bkIssue" rows="3" required
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary resize-none"
+                            placeholder="What's wrong with your device?"></textarea>
+                    </div>
+                    <button onclick="goToStep(2)"
+                        class="w-full bg-primary hover:bg-blue-600 text-white py-3.5 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+                        Next: Choose Date & Time
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Date & Time -->
+            <div id="step2"
+                class="hidden bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700 shadow-sm">
+                <h2 class="text-xl font-bold mb-6 dark:text-white flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">calendar_month</span>
+                    Choose Date & Time
+                </h2>
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Preferred
+                            Date *</label>
+                        <input type="date" id="bkDate" required
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Preferred
+                            Time *</label>
+                        <div class="grid grid-cols-3 md:grid-cols-4 gap-3" id="timeSlots">
+                            <button type="button"
+                                class="time-slot px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-sm font-semibold hover:border-primary"
+                                data-time="9:00 AM">9:00 AM</button>
+                            <button type="button"
+                                class="time-slot px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-sm font-semibold hover:border-primary"
+                                data-time="10:00 AM">10:00 AM</button>
+                            <button type="button"
+                                class="time-slot px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-sm font-semibold hover:border-primary"
+                                data-time="11:00 AM">11:00 AM</button>
+                            <button type="button"
+                                class="time-slot px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-sm font-semibold hover:border-primary"
+                                data-time="12:00 PM">12:00 PM</button>
+                            <button type="button"
+                                class="time-slot px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-sm font-semibold hover:border-primary"
+                                data-time="1:00 PM">1:00 PM</button>
+                            <button type="button"
+                                class="time-slot px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-sm font-semibold hover:border-primary"
+                                data-time="2:00 PM">2:00 PM</button>
+                            <button type="button"
+                                class="time-slot px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-sm font-semibold hover:border-primary"
+                                data-time="3:00 PM">3:00 PM</button>
+                            <button type="button"
+                                class="time-slot px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-sm font-semibold hover:border-primary"
+                                data-time="4:00 PM">4:00 PM</button>
+                            <button type="button"
+                                class="time-slot px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-sm font-semibold hover:border-primary"
+                                data-time="5:00 PM">5:00 PM</button>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <button onclick="goToStep(1)"
+                            class="flex-1 py-3.5 rounded-xl font-semibold border border-slate-200 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined">arrow_back</span> Back
+                        </button>
+                        <button onclick="goToStep(3)"
+                            class="flex-1 bg-primary hover:bg-blue-600 text-white py-3.5 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+                            Review Booking <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Confirmation -->
+            <div id="step3"
+                class="hidden bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700 shadow-sm">
+                <h2 class="text-xl font-bold mb-6 dark:text-white flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">fact_check</span>
+                    Review & Confirm
+                </h2>
+                <div class="space-y-4 mb-8">
+                    <div class="flex justify-between p-4 bg-slate-50 dark:bg-slate-900 rounded-xl">
+                        <span class="text-slate-500">Name</span>
+                        <span class="font-semibold" id="revName"></span>
+                    </div>
+                    <div class="flex justify-between p-4 bg-slate-50 dark:bg-slate-900 rounded-xl">
+                        <span class="text-slate-500">Phone</span>
+                        <span class="font-semibold" id="revPhone"></span>
+                    </div>
+                    <div class="flex justify-between p-4 bg-slate-50 dark:bg-slate-900 rounded-xl">
+                        <span class="text-slate-500">Model</span>
+                        <span class="font-semibold" id="revModel"></span>
+                    </div>
+                    <div class="flex justify-between p-4 bg-slate-50 dark:bg-slate-900 rounded-xl">
+                        <span class="text-slate-500">Date</span>
+                        <span class="font-semibold" id="revDate"></span>
+                    </div>
+                    <div class="flex justify-between p-4 bg-slate-50 dark:bg-slate-900 rounded-xl">
+                        <span class="text-slate-500">Time</span>
+                        <span class="font-semibold" id="revTime"></span>
+                    </div>
+                    <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl">
+                        <span class="text-slate-500 block mb-1">Issue</span>
+                        <span class="font-semibold" id="revIssue"></span>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <button onclick="goToStep(2)"
+                        class="flex-1 py-3.5 rounded-xl font-semibold border border-slate-200 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined">arrow_back</span> Back
+                    </button>
+                    <button onclick="submitBooking()"
+                        class="flex-1 bg-[#25D366] hover:bg-[#1da851] text-white py-3.5 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z">
+                            </path>
+                        </svg>
+                        Confirm via WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="mt-12 grid grid-cols-3 gap-4 text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+                    <span class="material-symbols-outlined text-primary text-2xl mb-2">verified</span>
+                    <p class="text-xs font-semibold text-slate-600 dark:text-slate-400">Free Diagnosis</p>
+                </div>
+                <div class="p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+                    <span class="material-symbols-outlined text-primary text-2xl mb-2">shield</span>
+                    <p class="text-xs font-semibold text-slate-600 dark:text-slate-400">90-Day Warranty</p>
+                </div>
+                <div class="p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+                    <span class="material-symbols-outlined text-primary text-2xl mb-2">speed</span>
+                    <p class="text-xs font-semibold text-slate-600 dark:text-slate-400">Same-Day Service</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- WhatsApp Floating Button -->
+    <a class="fixed bottom-6 right-6 z-[100] bg-[#25D366] text-white p-3 md:pl-4 md:pr-6 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform"
+        href="https://wa.me/message/LQPWHU2EV3P4I1" target="_blank" rel="noopener noreferrer">
+        <div class="bg-white rounded-full p-1 flex items-center justify-center">
+            <svg class="w-6 h-6 fill-[#25D366]" viewBox="0 0 24 24">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z">
+                </path>
+            </svg>
+        </div>
+        <span class="font-bold hidden md:block">Chat with Dennis</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 pt-16 pb-10">
+        <div class="container mx-auto px-4">
+            <div
+                class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+                <p>&copy; 2024 Dentech Repair. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a class="hover:text-primary" href="index.html">Home</a>
+                    <a class="hover:text-primary" href="services.html">Services</a>
+                    <a class="hover:text-primary" href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 80 });
+        window.addEventListener('load', () => { document.getElementById('pageLoader').classList.add('hidden'); });
+
+        function toggleDark() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+        if (localStorage.getItem('darkMode') === 'true') document.documentElement.classList.add('dark');
+        document.getElementById('darkToggle').addEventListener('click', toggleDark);
+        document.getElementById('darkToggleMobile').addEventListener('click', toggleDark);
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        // Set min date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('bkDate').setAttribute('min', today);
+
+        // Time slot selection
+        let selectedTime = '';
+        document.querySelectorAll('.time-slot').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.time-slot').forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                selectedTime = btn.dataset.time;
+            });
+        });
+
+        // Multi-step form
+        function goToStep(step) {
+            if (step === 2) {
+                if (!document.getElementById('bkName').value || !document.getElementById('bkPhone').value || !document.getElementById('bkModel').value || !document.getElementById('bkIssue').value) {
+                    alert('Please fill in all fields.'); return;
+                }
+            }
+            if (step === 3) {
+                if (!document.getElementById('bkDate').value || !selectedTime) {
+                    alert('Please select both a date and time.'); return;
+                }
+                document.getElementById('revName').textContent = document.getElementById('bkName').value;
+                document.getElementById('revPhone').textContent = document.getElementById('bkPhone').value;
+                document.getElementById('revModel').textContent = document.getElementById('bkModel').value;
+                document.getElementById('revDate').textContent = document.getElementById('bkDate').value;
+                document.getElementById('revTime').textContent = selectedTime;
+                document.getElementById('revIssue').textContent = document.getElementById('bkIssue').value;
+            }
+            document.querySelectorAll('#step1,#step2,#step3').forEach(el => el.classList.add('hidden'));
+            document.getElementById('step' + step).classList.remove('hidden');
+            // Update indicators
+            for (let i = 1; i <= 3; i++) {
+                const ind = document.getElementById('step' + i + 'Ind');
+                ind.className = 'step-indicator w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm';
+                if (i < step) ind.classList.add('completed');
+                else if (i === step) ind.classList.add('active');
+                else { ind.classList.add('bg-slate-200', 'dark:bg-slate-700', 'text-slate-500'); }
+            }
+        }
+
+        function submitBooking() {
+            const msg = `Hi Dennis, I'd like to book a MacBook diagnosis.\n\n*Name:* ${document.getElementById('bkName').value}\n*Phone:* ${document.getElementById('bkPhone').value}\n*Model:* ${document.getElementById('bkModel').value}\n*Date:* ${document.getElementById('bkDate').value}\n*Time:* ${selectedTime}\n*Issue:* ${document.getElementById('bkIssue').value}\n\nPlease confirm this appointment. Thank you!`;
+            window.open('https://wa.me/message/LQPWHU2EV3P4I1?text=' + encodeURIComponent(msg), '_blank');
+        }
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date()); gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+</body>
+
+</html>
