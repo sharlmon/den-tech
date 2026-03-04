@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Our Services | Dentech Repair | Professional MacBook Restoration</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#007AFF",
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#111827",
+                    },
+                    fontFamily: {
+                        display: ["Outfit", "Inter", "sans-serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.75rem",
+                    },
+                },
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        .glass-effect {
+        backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.8);
+    }
+    .dark .glass-effect {
+        background: rgba(17, 24, 39, 0.8);
+    }
+    .hero-gradient {
+        background: radial-gradient(circle at top right, rgba(0, 122, 255, 0.05), transparent),
+                    radial-gradient(circle at bottom left, rgba(0, 122, 255, 0.03), transparent);
+    }
+    .service-card:hover .service-image {
+        transform: scale(1.05);
+    }
+</style>
+</head>
+
+<body
+    class="font-sans text-slate-900 bg-background-light dark:bg-background-dark dark:text-slate-100 selection:bg-primary selection:text-white">
+
+    <!-- Top Bar -->
+    <div class="bg-slate-900 text-white py-2 px-4 text-center text-sm font-medium">
+        <div class="container mx-auto flex justify-center items-center gap-6">
+            <span class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">call</span>
+                Dennis: <a class="hover:text-primary transition-colors" href="tel:0758409912">0758 409 912</a>
+            </span>
+            <span class="hidden md:flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm text-yellow-400">verified</span>
+                Independent Specialist
+            </span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass-effect border-b border-slate-200 dark:border-slate-800">
+        <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img alt="Dentech Logo" class="h-10 w-10 rounded-lg shadow-sm" src="logo.jpg.jpeg" />
+                <div>
+                    <span
+                        class="text-2xl font-display font-bold tracking-tight text-slate-900 dark:text-white leading-none block">DENTECH</span>
+                    <span class="text-[10px] uppercase tracking-[0.2em] font-semibold text-primary">Mac Repair
+                        Specialist</span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                    href="index.html">Home</a>
+                <a class="font-medium text-primary" href="services.html">Services</a>
+                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                    href="contact.html">Contact</a>
+                <a class="bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg"
+                    href="contact.html">Book Diagnosis</a>
+            </div>
+            <button id="mobileMenuBtn" class="md:hidden text-slate-900 dark:text-white">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
+            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+                href="index.html">Home</a>
+            <a class="block font-medium text-primary py-2" href="services.html">Services</a>
+            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+                href="contact.html">Contact</a>
+            <a class="block bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-center"
+                href="contact.html">Book Diagnosis</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-20 pb-16 hero-gradient">
+        <div class="container mx-auto px-4 text-center">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary text-sm font-bold mb-6 border border-blue-100 dark:border-blue-800">
+                OUR EXPERTISE
+            </div>
+            <h1 class="text-4xl md:text-6xl font-display font-bold text-slate-900 dark:text-white mb-6">Our Specialized
+                Services</h1>
+            <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                Professional component-level repairs for all MacBook models. We fix what others replace, saving you
+                money and protecting your data.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pb-24">
+        <section class="container mx-auto px-4" id="services">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Logic Board Repair -->
+                <div
+                    class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all flex flex-col group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img alt="Logic Board Microsoldering"
+                            class="service-image w-full h-full object-cover transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyfQicHflAjBF88UjYcr57cGT5nUAlbYzIjyVetdLdvFJ8RUx_A1I1Ga8HIbuWkKqB4DSJN2kacH1UCQK9B50pYErDZy8wk6bZlI2nVdtDpYO9ZYLxHzlo17ReATKJJMqxEqhujtI40qNlE94uwzLO4McRmuUKEgIQ8iI4gY0xETsB-h51JUgGVfNZaIXWmLMny9B0Y8wsmgUE2qcj5B3rDyenuz0Bo6pMSAXsN2UgBb9YitLlz0D_65Bs4Udo6oPheHsLZoMdMy6c" />
+                        <div
+                            class="absolute top-4 left-4 bg-primary/90 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
+                            Expert Level</div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-primary text-3xl">memory</span>
+                            <h3 class="text-xl font-bold dark:text-white">Logic Board Repair</h3>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed flex-grow">
+                            We specialize in high-end microsoldering to repair individual components on the logic board.
+                            From blown capacitors to faulty power rails, we restore functionality without expensive
+                            full-board replacements.
+                        </p>
+                        <a class="inline-flex items-center text-primary font-bold hover:gap-2 transition-all"
+                            href="contact.html">
+                            Learn More <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Apple Silicon Repair -->
+                <div
+                    class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all flex flex-col group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img alt="Apple Silicon Repair"
+                            class="service-image w-full h-full object-cover transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvAwZNnkDadaaMYuqC9mEzCesMZF2-spyQATDZBAc5KaoxB_zfoDgeNfI2YRhAaOcDx31xey506ZyQBoqNBR6_vDwY8aiomdodx458uhE8wScJE1rX9yALQiqx_XXfITf_9vbLIdDl937_ZSZIeAo6j7qSM7ddybkia_nQ9jTXymV9QEKYiR3coeDRwX1QnZUI7yzE3dyc_6SHxOKkY7JImcW4r-3l8GyRAPgBjEmwNwfckXqUA0qPJDReBgA6AdsbodL1j5hSo-Jf" />
+                        <div
+                            class="absolute top-4 left-4 bg-slate-900/90 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
+                            M1 / M2 / M3</div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-primary text-3xl">computer</span>
+                            <h3 class="text-xl font-bold dark:text-white">Apple Silicon Repair</h3>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed flex-grow">
+                            Specialized diagnosis for the latest generation of chips. We handle complex T2 security chip
+                            issues, SSD controller failures, and unique power architecture problems inherent to modern
+                            architecture.
+                        </p>
+                        <a class="inline-flex items-center text-primary font-bold hover:gap-2 transition-all"
+                            href="contact.html">
+                            Learn More <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Liquid Damage Restoration -->
+                <div
+                    class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all flex flex-col group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img alt="Liquid Damage Restoration"
+                            class="service-image w-full h-full object-cover transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCukN88t1ew2eOy6qnSVjBm7qW9rmDWca_WRGH37lFfr4lC0fC2Y1Nl0gmWIUPNryvrV3L1eo9WunqRVs5YsOx4Tdno4in1cIRqwZ4ykajxD4TA-3wOG18JkDDz0zXRASno9qRMCirnxjmTsd70WNZamHQFkte3pUU3jTe2B67ZjwhsiZ9VoDhV8bR7X4fQodW2qvl5egCwLbocC9jKYeopFRZ0Qijre-3GyDFCVT4R5hA5PEZBYs-9RM-Kguug26x61S7LlEs4vniw" />
+                        <div
+                            class="absolute top-4 left-4 bg-red-500/90 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
+                            Urgent</div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-primary text-3xl">opacity</span>
+                            <h3 class="text-xl font-bold dark:text-white">Liquid Damage Restoration</h3>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed flex-grow">
+                            Professional ultrasonic cleaning and trace reconstruction. We stop active corrosion and
+                            repair paths destroyed by spills, often recovering machines declared "unfixable" by others.
+                        </p>
+                        <a class="inline-flex items-center text-primary font-bold hover:gap-2 transition-all"
+                            href="contact.html">
+                            Learn More <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Screen & Keyboard -->
+                <div
+                    class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all flex flex-col group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img alt="Screen &amp; Keyboard Replacement"
+                            class="service-image w-full h-full object-cover transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCUS7HOxmKKptxshHB_AuVj3HZHFnL8CFBGxpzLMYnhG947NQh2TEqvQVguqtNLXVju9tMnkf-izbnJXwZmEUZp1_FXanTmdON0ttz8FNkRR1ku3nNTC2c_fGwDTMwiDHkJiyIBy9buLFybJzPc73wZKarKJ4g48We1xj5n2At0SqLOnuoF-rLBTRzeWmvVXfEAlGgDgVfBflVqtxqbhxMoa6jkb55LRsHUphLIs85iYYr6pWiEYM6t_qNCAscQTqTr3p_tWo7T1Rh" />
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-primary text-3xl">laptop_mac</span>
+                            <h3 class="text-xl font-bold dark:text-white">Screen &amp; Keyboard</h3>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed flex-grow">
+                            Precision replacement of Retina displays, glass assemblies, and keyboards. We use premium
+                            grade parts to ensure color accuracy, brightness, and that perfect tactile typing feel.
+                        </p>
+                        <a class="inline-flex items-center text-primary font-bold hover:gap-2 transition-all"
+                            href="contact.html">
+                            Learn More <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Data Recovery -->
+                <div
+                    class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all flex flex-col group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img alt="Data Recovery Service"
+                            class="service-image w-full h-full object-cover transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyfQicHflAjBF88UjYcr57cGT5nUAlbYzIjyVetdLdvFJ8RUx_A1I1Ga8HIbuWkKqB4DSJN2kacH1UCQK9B50pYErDZy8wk6bZlI2nVdtDpYO9ZYLxHzlo17ReATKJJMqxEqhujtI40qNlE94uwzLO4McRmuUKEgIQ8iI4gY0xETsB-h51JUgGVfNZaIXWmLMny9B0Y8wsmgUE2qcj5B3rDyenuz0Bo6pMSAXsN2UgBb9YitLlz0D_65Bs4Udo6oPheHsLZoMdMy6c" />
+                        <div
+                            class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
+                            Critical</div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-primary text-3xl">database</span>
+                            <h3 class="text-xl font-bold dark:text-white">Data Recovery</h3>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed flex-grow">
+                            Advanced data retrieval from non-booting devices, damaged SSDs, and encrypted volumes. If
+                            your logic board is dead, we can often bypass the failure to extract your precious files.
+                        </p>
+                        <a class="inline-flex items-center text-primary font-bold hover:gap-2 transition-all"
+                            href="contact.html">
+                            Learn More <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Custom Repair Request -->
+                <div
+                    class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 border-dashed dark:border-slate-700 flex flex-col items-center justify-center p-8 text-center group">
+                    <div
+                        class="w-16 h-16 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center text-primary mb-6">
+                        <span class="material-symbols-outlined text-3xl">construction</span>
+                    </div>
+                    <h3 class="text-xl font-bold dark:text-white mb-4">Custom Repair Request</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">
+                        Have a unique problem or a vintage model? Contact Dennis directly for a custom consultation.
+                    </p>
+                    <a class="bg-primary text-white px-6 py-2 rounded-full font-bold text-sm hover:shadow-lg transition-all"
+                        href="tel:0758409912">Call Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="py-24 mt-16 bg-slate-50 dark:bg-slate-900/50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Why Choose Us?</h2>
+                        <p class="text-slate-600 dark:text-slate-400">The difference between "Replace Everything" and
+                            "Repair What's Broken".</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-white dark:bg-slate-800 shadow-sm rounded-xl flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined">magnification_small</span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold mb-2 dark:text-white">Component-Level Repair</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                    Most shops and official centers only offer "Tiered Repair" or whole-unit
+                                    replacements. We dive deep into the circuitry, replacing a $5 chip instead of a $800
+                                    logic board.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-white dark:bg-slate-800 shadow-sm rounded-xl flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined">savings</span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold mb-2 dark:text-white">Significant Cost Savings</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                    By repairing individual parts, we typically save our customers 50-70% compared to
+                                    official repair center quotes, while maintaining the same performance.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-white dark:bg-slate-800 shadow-sm rounded-xl flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined">security</span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold mb-2 dark:text-white">Data Preservation</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                    Whole-unit swaps mean you lose your data. Our repair-first approach prioritizes
+                                    getting your existing hardware to boot so your files remain intact.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-white dark:bg-slate-800 shadow-sm rounded-xl flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined">history_edu</span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold mb-2 dark:text-white">Expert Diagnosis</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                    Dennis brings years of specialized experience in MacBook board design. You get a
+                                    detailed explanation of what failed and why, not just a generic error code.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- WhatsApp Floating Button -->
+    <a class="fixed bottom-6 right-6 z-[100] bg-[#25D366] text-white p-3 md:pl-4 md:pr-6 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform group"
+        href="https://wa.me/message/LQPWHU2EV3P4I1" target="_blank" rel="noopener noreferrer">
+        <div class="bg-white rounded-full p-1 flex items-center justify-center">
+            <svg class="w-6 h-6 fill-[#25D366]" viewBox="0 0 24 24">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z">
+                </path>
+            </svg>
+        </div>
+        <span class="font-bold hidden md:block">Chat with Dennis</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 pt-20 pb-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2 lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img alt="Dentech Logo" class="h-8 w-8 rounded-lg" src="logo.jpg.jpeg" />
+                        <span class="text-xl font-display font-bold text-slate-900 dark:text-white">DENTECH
+                            REPAIR</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                        Leading independent MacBook repair center specializing in high-end component restoration and
+                        data recovery services. Trusted, professional, and precise.
+                    </p>
+                    <div class="flex gap-4">
+                        <a class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
+                            href="#">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
+                            href="#">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-6">Explore</h4>
+                    <ul class="space-y-4 text-slate-600 dark:text-slate-400">
+                        <li><a class="hover:text-primary transition-colors" href="index.html">Home</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="services.html">Our Services</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="contact.html">Book Online</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-6">Expertise</h4>
+                    <ul class="space-y-4 text-slate-600 dark:text-slate-400">
+                        <li><a class="hover:text-primary transition-colors" href="#">Microsoldering</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">M1/M2 Specialist</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Water Damage</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Data Recovery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-6">Contact Us</h4>
+                    <ul class="space-y-4 text-slate-600 dark:text-slate-400">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary">person</span>
+                            <span>Dennis - Lead Tech</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary">call</span>
+                            <a class="hover:text-primary transition-colors" href="tel:0758409912">0758 409 912</a>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary">mail</span>
+                            <a class="hover:text-primary transition-colors"
+                                href="mailto:denisnjoroge180@gmail.com">denisnjoroge180@gmail.com</a>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary">schedule</span>
+                            <span>Mon - Sat: 9:00 - 18:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+                <p>&copy; 2024 Dentech Repair. All rights reserved. Not an authorized Apple Service Provider.</p>
+                <div class="flex gap-6">
+                    <a class="hover:text-primary" href="#">Privacy Policy</a>
+                    <a class="hover:text-primary" href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+
+</html>
