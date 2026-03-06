@@ -60,6 +60,21 @@
             "@type": "AggregateRating",
             "ratingValue": "5",
             "reviewCount": "500"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "MacBook Repair Services",
+            "itemListElement": [
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Logic Board Microsoldering"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Apple Silicon Repair"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Liquid Damage Restoration"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Screen & Keyboard Replacement"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Data Recovery & macOS Installation"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Broken Screen Replacement"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Faulty Battery Replacement"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Motherboard Short Circuit"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "BIOS / DFU Restoration"}}
+            ]
         }
     }
     </script>
@@ -376,6 +391,50 @@
                     <h3 class="text-lg font-bold mb-3 text-slate-900 dark:text-white">Liquid Damage Cleaning</h3>
                     <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                         Professional ultrasonic cleaning and trace restoration. Stop corrosion before it's too late.
+                    </p>
+                </div>
+                <div class="capability-card bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700"
+                    data-aos="fade-up" data-aos-delay="0">
+                    <div
+                        class="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <span class="material-symbols-outlined text-3xl">screen_rotation_alt</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 text-slate-900 dark:text-white">Screen Replacement</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Cracked or faulty Retina displays replaced perfectly with premium panels.
+                    </p>
+                </div>
+                <div class="capability-card bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <span class="material-symbols-outlined text-3xl">battery_alert</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 text-slate-900 dark:text-white">Battery Replacement</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Restore your MacBook's all-day battery life with genuine-grade cells.
+                    </p>
+                </div>
+                <div class="capability-card bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <span class="material-symbols-outlined text-3xl">electric_bolt</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 text-slate-900 dark:text-white">Short Circuit Repair</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Pinpoint and resolve microscopic short circuits to revive dead logic boards.
+                    </p>
+                </div>
+                <div class="capability-card bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <span class="material-symbols-outlined text-3xl">terminal</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 text-slate-900 dark:text-white">BIOS / DFU Restore</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Firmware-level recovery for bricked Macs via DFU mode without losing data.
                     </p>
                 </div>
             </div>
@@ -698,7 +757,10 @@
                         </li>
                         <li><a class="hover:text-primary transition-colors" href="services.html">iMac &amp; Studio
                                 Service</a></li>
-                        <li><a class="hover:text-primary transition-colors" href="services.html">SSD Upgrades</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="services.html">Data Recovery &
+                                macOS</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="services.html">Component Repair</a>
+                        </li>
                     </ul>
                 </div>
                 <div>

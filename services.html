@@ -35,7 +35,11 @@
                 {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Apple Silicon Repair"}},
                 {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Liquid Damage Restoration"}},
                 {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Screen & Keyboard Replacement"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Data Recovery"}}
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Data Recovery & macOS Installation"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Broken Screen Replacement"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Faulty Battery Replacement"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Motherboard Short Circuit"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "BIOS / DFU Restoration"}}
             ]
         }
     }
@@ -323,7 +327,7 @@
                 <div class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl flex flex-col group"
                     data-aos="fade-up" data-aos-delay="100">
                     <div class="h-56 overflow-hidden relative">
-                        <img alt="Data Recovery Service"
+                        <img alt="Data Recovery & macOS Installation"
                             class="service-image w-full h-full object-cover transition-transform duration-500"
                             src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=600&h=400&fit=crop&q=80" />
                         <div class="service-overlay"></div>
@@ -337,11 +341,135 @@
                     <div class="p-8 flex flex-col flex-grow">
                         <div class="flex items-center gap-3 mb-4">
                             <span class="material-symbols-outlined text-primary text-3xl">database</span>
-                            <h3 class="text-xl font-bold dark:text-white">Data Recovery</h3>
+                            <h3 class="text-xl font-bold dark:text-white">Data Recovery &amp; macOS Installation</h3>
                         </div>
                         <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed flex-grow">
-                            Advanced data retrieval from non-booting devices, damaged SSDs, and encrypted volumes. If
-                            your logic board is dead, we can often bypass the failure to extract your precious files.
+                            Advanced data retrieval from non-booting devices and damaged SSDs, plus clean macOS
+                            installations and OS upgrades. We ensure your files are safe and your system runs smoothly.
+                        </p>
+                        <a class="inline-flex items-center text-primary font-bold hover:gap-2 transition-all"
+                            href="contact.html">
+                            Learn More <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Broken Screen Replacement -->
+                <div class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl flex flex-col group"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-56 overflow-hidden relative">
+                        <img alt="Broken Screen Replacement"
+                            class="service-image w-full h-full object-cover transition-transform duration-500"
+                            src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=400&fit=crop&q=80" />
+                        <div class="service-overlay"></div>
+                        <div
+                            class="absolute top-4 left-4 bg-amber-500 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
+                            Common</div>
+                        <a href="contact.html"
+                            class="service-cta bg-primary text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">Get
+                            Quote →</a>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-primary text-3xl">screen_rotation_alt</span>
+                            <h3 class="text-xl font-bold dark:text-white">Broken Screen Replacement</h3>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed flex-grow">
+                            Cracked or faulty Retina displays replaced perfectly. We use premium panels ensuring colors,
+                            brightness, and True Tone functionality remain flawless.
+                        </p>
+                        <a class="inline-flex items-center text-primary font-bold hover:gap-2 transition-all"
+                            href="contact.html">
+                            Learn More <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Faulty Battery Replacement -->
+                <div class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl flex flex-col group"
+                    data-aos="fade-up" data-aos-delay="0">
+                    <div class="h-56 overflow-hidden relative">
+                        <img alt="Faulty Battery Replacement"
+                            class="service-image w-full h-full object-cover transition-transform duration-500"
+                            src="work.jpg.jpeg" />
+                        <div class="service-overlay"></div>
+                        <div
+                            class="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
+                            Essential</div>
+                        <a href="contact.html"
+                            class="service-cta bg-primary text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">Get
+                            Quote →</a>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-primary text-3xl">battery_alert</span>
+                            <h3 class="text-xl font-bold dark:text-white">Faulty Battery Replacement</h3>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed flex-grow">
+                            Swollen, fast-draining, or completely dead batteries replaced safely. Restore your MacBook's
+                            original all-day battery life with genuine-grade cells.
+                        </p>
+                        <a class="inline-flex items-center text-primary font-bold hover:gap-2 transition-all"
+                            href="contact.html">
+                            Learn More <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Motherboard Short Circuit -->
+                <div class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl flex flex-col group"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-56 overflow-hidden relative">
+                        <img alt="Motherboard Short Circuit"
+                            class="service-image w-full h-full object-cover transition-transform duration-500"
+                            src="work1.jpg.jpeg" />
+                        <div class="service-overlay"></div>
+                        <div
+                            class="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
+                            Advanced</div>
+                        <a href="contact.html"
+                            class="service-cta bg-primary text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">Get
+                            Quote →</a>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-primary text-3xl">electric_bolt</span>
+                            <h3 class="text-xl font-bold dark:text-white">Motherboard Short Circuit</h3>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed flex-grow">
+                            Dead MacBook? We pinpoint and resolve microscopic short circuits on primary power rails
+                            (PPBUS_G3H) to bring completely lifeless boards back to life.
+                        </p>
+                        <a class="inline-flex items-center text-primary font-bold hover:gap-2 transition-all"
+                            href="contact.html">
+                            Learn More <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- BIOS / DFU Restoration -->
+                <div class="service-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl flex flex-col group"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-56 overflow-hidden relative">
+                        <img alt="BIOS / DFU Restoration"
+                            class="service-image w-full h-full object-cover transition-transform duration-500"
+                            src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop&q=80" />
+                        <div class="service-overlay"></div>
+                        <div
+                            class="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
+                            Specialist</div>
+                        <a href="contact.html"
+                            class="service-cta bg-primary text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">Get
+                            Quote →</a>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-primary text-3xl">terminal</span>
+                            <h3 class="text-xl font-bold dark:text-white">BIOS / DFU Restoration</h3>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed flex-grow">
+                            Firmware-level recovery for bricked Macs. Advanced T2 security chip and Apple Silicon
+                            (M1/M2/M3) firmware revival via DFU mode without losing your data.
                         </p>
                         <a class="inline-flex items-center text-primary font-bold hover:gap-2 transition-all"
                             href="contact.html">
