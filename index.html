@@ -15,7 +15,7 @@
     <meta property="og:title" content="Dentech Repair | Advanced MacBook Repair Service" />
     <meta property="og:description"
         content="From precision micro-soldering to critical data recovery, we fix what others can't. Premium MacBook repair in Nairobi." />
-    <meta property="og:image" content="https://sharlmon.github.io/den-tech/logo.jpg.jpeg" />
+    <meta property="og:image" content="https://sharlmon.github.io/den-tech/logo.webp" />
     <meta property="og:url" content="https://sharlmon.github.io/den-tech/" />
     <meta property="og:site_name" content="Dentech Repair" />
     <!-- Twitter Card -->
@@ -23,16 +23,16 @@
     <meta name="twitter:title" content="Dentech Repair | Advanced MacBook Repair Service" />
     <meta name="twitter:description"
         content="Trusted MacBook repair specialists in Nairobi. Free diagnosis available." />
-    <meta name="twitter:image" content="https://sharlmon.github.io/den-tech/logo.jpg.jpeg" />
+    <meta name="twitter:image" content="https://sharlmon.github.io/den-tech/logo.webp" />
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="logo.jpg.jpeg" />
+    <link rel="icon" type="image/webp" href="logo.webp" />
     <!-- Schema Markup -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Dentech Repair",
-        "image": "https://sharlmon.github.io/den-tech/logo.jpg.jpeg",
+        "image": "https://sharlmon.github.io/den-tech/logo.webp",
         "description": "Advanced MacBook repair service in Nairobi specializing in logic board microsoldering, Apple Silicon repair, data recovery and liquid damage restoration.",
         "@id": "https://sharlmon.github.io/den-tech/",
         "url": "https://sharlmon.github.io/den-tech/",
@@ -55,7 +55,7 @@
             "opens": "09:00",
             "closes": "18:00"
         },
-        "priceRange": "$$",
+        "priceRange": "KES",
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5",
@@ -65,15 +65,41 @@
             "@type": "OfferCatalog",
             "name": "MacBook Repair Services",
             "itemListElement": [
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Logic Board Microsoldering"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Apple Silicon Repair"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Liquid Damage Restoration"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Screen & Keyboard Replacement"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Data Recovery & macOS Installation"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Broken Screen Replacement"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Faulty Battery Replacement"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Motherboard Short Circuit"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "BIOS / DFU Restoration"}}
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Logic Board Microsoldering", "description": "Precision component-level repair for MacBook logic boards."}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Apple Silicon Repair", "description": "Expert repair for M1, M2, and M3 MacBook models."}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Liquid Damage Restoration", "description": "Professional cleaning and restoration for water-damaged MacBooks."}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Screen & Keyboard Replacement", "description": "Premium Retina display and keyboard replacements."}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Data Recovery & macOS Installation", "description": "Safe data retrieval and system restoration."}}
+            ]
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Professional MacBook Repair",
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "Dentech Repair"
+        },
+        "areaServed": {
+            "@type": "City",
+            "name": "Nairobi"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Tech Services",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@type": "Service",
+                        "name": "CCTV Installation",
+                        "description": "Professional CCTV installation in Nairobi for residential and commercial properties."
+                    }
+                }
             ]
         }
     }
@@ -111,10 +137,12 @@
     <style type="text/tailwindcss">
         .glass-effect {
             backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .dark .glass-effect {
-            background: rgba(17, 24, 39, 0.8);
+            background: rgba(17, 24, 39, 0.7);
+            border-color: rgba(255, 255, 255, 0.1);
         }
         .hero-gradient {
             background: radial-gradient(circle at top right, rgba(0, 122, 255, 0.05), transparent),
@@ -137,10 +165,13 @@
         }
         .capability-card {
             transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
         }
         .capability-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: rgba(0, 122, 255, 0.3) !important;
         }
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
@@ -224,7 +255,7 @@
     <nav class="sticky top-0 z-50 glass-effect border-b border-slate-200 dark:border-slate-800">
         <div class="container mx-auto px-4 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img alt="Dentech Logo" class="h-10 w-10 rounded-lg shadow-sm" src="logo.jpg.jpeg" />
+                <img alt="Dentech Logo - Professional Tech Services in Nairobi" class="h-10 w-10 rounded-lg shadow-sm" src="logo.webp" />
                 <div>
                     <span
                         class="text-2xl font-display font-bold tracking-tight text-slate-900 dark:text-white leading-none block">DENTECH</span>
@@ -647,13 +678,21 @@
         <span class="font-bold hidden md:block">Chat with Dennis</span>
     </a>
 
+    <!-- Quick Quote Floating Button (Mobile) -->
+    <a class="md:hidden fixed bottom-24 right-6 z-[100] bg-primary text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 animate-bounce hover:scale-105 transition-transform"
+        href="https://wa.me/254758409912?text=Hi%20Den-Tech,%20I%20would%20like%20a%20quote%20for%20your%20tech%20services." 
+        target="_blank" rel="noopener noreferrer">
+        <span class="material-symbols-outlined">bolt</span>
+        <span class="font-bold">Quick Quote</span>
+    </a>
+
     <!-- Footer -->
     <footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 pt-20 pb-10">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1 md:col-span-2 lg:col-span-1">
                     <div class="flex items-center gap-3 mb-6">
-                        <img alt="Dentech Logo" class="h-8 w-8 rounded-lg" src="logo.jpg.jpeg" />
+                        <img alt="Dentech Repair - MacBook Specialist Nairobi" class="h-8 w-8 rounded-lg" src="logo.webp" />
                         <span class="text-xl font-display font-bold text-slate-900 dark:text-white">DENTECH
                             REPAIR</span>
                     </div>
