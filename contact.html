@@ -43,9 +43,13 @@
     }
     </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
-        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
@@ -54,58 +58,152 @@
             darkMode: "class",
             theme: {
                 extend: {
-                    colors: { primary: "#007AFF", "background-light": "#F9FAFB", "background-dark": "#111827" },
-                    fontFamily: { display: ["Outfit", "Inter", "sans-serif"], sans: ["Inter", "sans-serif"] },
-                    borderRadius: { DEFAULT: "0.75rem" },
+                    colors: {
+                        primary: "#111111", // Graphite for light mode buttons
+                        "primary-light": "#FFFFFF", 
+                        "background-light": "#F8F8F6",
+                        "background-dark": "#000000",
+                        graphite: "#111111",
+                        charcoal: "#1A1A1A",
+                        silver: "#C0C0C0",
+                    },
+                    fontFamily: {
+                        display: ["Space Grotesk", "sans-serif"],
+                        sans: ["Inter", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "1rem",
+                        "xl": "1.5rem",
+                    },
                 },
             },
         };
     </script>
     <style type="text/tailwindcss">
         .glass-effect {
-            backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
         .dark .glass-effect {
-            background: rgba(17, 24, 39, 0.7);
-            border-color: rgba(255, 255, 255, 0.1);
+            background: rgba(17, 17, 17, 0.75);
+            border-color: rgba(255, 255, 255, 0.08);
         }
         .hero-gradient {
-            background: radial-gradient(circle at top right, rgba(0, 122, 255, 0.05), transparent),
-                        radial-gradient(circle at bottom left, rgba(0, 122, 255, 0.03), transparent);
+            background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.1), transparent),
+                        radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.05), transparent);
         }
+        .hero-overlay {
+            position: relative;
+            overflow: hidden;
+            background-color: #000;
+        }
+        .hero-overlay::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(17, 17, 17, 0.85) 100%);
+            z-index: 1;
+        }
+        /* Circuit Grid Background */
+        .hero-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 1;
+            opacity: 0.5;
+        }
+        .hero-overlay > * {
+            position: relative;
+            z-index: 2;
+        }
+        .capability-card, .testimonial-card, .faq-item {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+            background: rgba(255, 255, 255, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+        .dark .capability-card, .dark .testimonial-card, .dark .faq-item {
+            border: 1px solid rgba(192, 192, 192, 0.1) !important;
+            background: rgba(26, 26, 26, 0.5);
+        }
+        /* Hover lift with subtle glow */
+        .capability-card:hover, .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 20px rgba(0, 0, 0, 0.02);
+            border-color: rgba(0, 0, 0, 0.2) !important;
+        }
+        .dark .capability-card:hover, .dark .testimonial-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.05);
+            border-color: rgba(192, 192, 192, 0.4) !important;
+            background: rgba(26, 26, 26, 0.9);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        .animate-delay-100 { animation-delay: 0.1s; }
+        .animate-delay-200 { animation-delay: 0.2s; }
+        .animate-delay-300 { animation-delay: 0.3s; }
+        .animate-delay-400 { animation-delay: 0.4s; }
+        /* Page loader */
         .page-loader {
-            position: fixed; inset: 0; z-index: 9999; background: #F9FAFB;
+            position: fixed; inset: 0; z-index: 9999;
+            background: #F8F8F6;
             display: flex; align-items: center; justify-content: center;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
         }
-        .dark .page-loader { background: #111827; }
+        .dark .page-loader { background: #000000; }
         .page-loader.hidden { opacity: 0; visibility: hidden; }
-        .loader-spinner { width: 48px; height: 48px; border: 4px solid #e5e7eb; border-top-color: #007AFF; border-radius: 50%; animation: spin 0.7s linear infinite; }
+        .loader-spinner {
+            width: 48px; height: 48px;
+            border: 2px solid rgba(0,0,0,0.1);
+            border-top-color: #000000;
+            border-radius: 50%;
+            animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+        .dark .loader-spinner {
+            border: 2px solid rgba(255,255,255,0.1);
+            border-top-color: #FFFFFF;
+        }
         @keyframes spin { to { transform: rotate(360deg); } }
+        /* FAQ accordion */
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .faq-item.active .faq-answer { max-height: 400px; }
+        .faq-item.active .faq-chevron { transform: rotate(180deg); }
+        .faq-chevron { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
     </style>
 </head>
 
 <body
-    class="font-sans text-slate-900 bg-background-light dark:bg-background-dark dark:text-slate-100 selection:bg-primary selection:text-white">
+    class="font-sans text-slate-900 bg-background-light dark:bg-background-dark dark:text-slate-100 selection:bg-black dark:selection:bg-white selection:text-white dark:selection:text-black selection:text-white">
 
     <div class="page-loader" id="pageLoader">
         <div class="text-center">
             <div class="loader-spinner mx-auto mb-4"></div>
-            <p class="text-sm font-semibold text-primary tracking-wider">DENTECH REPAIR</p>
+            <p class="text-sm font-semibold text-black dark:text-white tracking-wider">DENTECH REPAIR</p>
         </div>
     </div>
 
     <!-- Top Bar -->
-    <div class="bg-slate-900 text-white py-2 px-4 text-center text-sm font-medium">
+    <div class="bg-black text-white border-b border-white/10 py-2 px-4 text-center text-sm font-medium">
         <div class="container mx-auto flex justify-center items-center gap-6">
             <span class="flex items-center gap-2">
                 <span class="material-symbols-outlined text-sm">call</span>
-                Dennis: <a class="hover:text-primary transition-colors" href="tel:0758409912">0758 409 912</a>
+                Dennis: <a class="hover:text-black dark:text-white transition-colors" href="tel:0758409912">0758 409 912</a>
             </span>
             <span class="hidden md:flex items-center gap-2">
-                <span class="material-symbols-outlined text-sm text-yellow-400">verified</span>
+                <span class="material-symbols-outlined text-sm text-black dark:text-white">verified</span>
                 Licensed &amp; Insured MacBook Specialist
             </span>
         </div>
@@ -115,29 +213,29 @@
     <nav class="sticky top-0 z-50 glass-effect border-b border-slate-200 dark:border-slate-800">
         <div class="container mx-auto px-4 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img alt="Dentech Logo - Professional Tech Services in Nairobi" class="h-10 w-10 rounded-lg shadow-sm" src="logo.webp" />
+                <img alt="Dentech Logo - Professional Tech Services in Nairobi" class="grayscale hover:grayscale-0 transition-all duration-700 h-10 w-10 rounded-lg shadow-sm" src="logo.webp" />
                 <div>
                     <span
                         class="text-2xl font-display font-bold tracking-tight text-slate-900 dark:text-white leading-none block">DENTECH</span>
-                    <span class="text-[10px] uppercase tracking-[0.2em] font-semibold text-primary">Repair
+                    <span class="text-[10px] uppercase tracking-[0.2em] font-semibold text-black dark:text-white">Repair
                         Specialist</span>
                 </div>
             </div>
             <div class="hidden md:flex items-center gap-8">
-                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                <a class="font-medium hover:text-black dark:text-white transition-colors text-slate-600 dark:text-slate-400"
                     href="index.html">Home</a>
-                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                <a class="font-medium hover:text-black dark:text-white transition-colors text-slate-600 dark:text-slate-400"
                     href="services.html">Services</a>
-                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                <a class="font-medium hover:text-black dark:text-white transition-colors text-slate-600 dark:text-slate-400"
                     href="blog.html">Blog</a>
-                <a class="font-medium text-primary" href="contact.html">Contact</a>
+                <a class="font-medium text-black dark:text-white" href="contact.html">Contact</a>
                 <button id="darkToggle"
                     class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
                     title="Toggle dark mode">
                     <span class="material-symbols-outlined dark:hidden">dark_mode</span>
                     <span class="material-symbols-outlined hidden dark:block">light_mode</span>
                 </button>
-                <a class="bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg"
+                <a class="bg-black dark:bg-white text-white dark:text-black hover:bg-slate-800 dark:hover:bg-slate-200 px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg"
                     href="booking.html">Book Diagnosis</a>
             </div>
             <div class="flex items-center gap-2 md:hidden">
@@ -154,14 +252,14 @@
         </div>
         <div id="mobileMenu"
             class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
-            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+            <a class="block font-medium hover:text-black dark:text-white transition-colors text-slate-600 dark:text-slate-400 py-2"
                 href="index.html">Home</a>
-            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+            <a class="block font-medium hover:text-black dark:text-white transition-colors text-slate-600 dark:text-slate-400 py-2"
                 href="services.html">Services</a>
-            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+            <a class="block font-medium hover:text-black dark:text-white transition-colors text-slate-600 dark:text-slate-400 py-2"
                 href="blog.html">Blog</a>
-            <a class="block font-medium text-primary py-2" href="contact.html">Contact</a>
-            <a class="block bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-center"
+            <a class="block font-medium text-black dark:text-white py-2" href="contact.html">Contact</a>
+            <a class="block bg-black dark:bg-white text-white dark:text-black hover:bg-slate-800 dark:hover:bg-slate-200 px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-center"
                 href="booking.html">Book Diagnosis</a>
         </div>
     </nav>
@@ -170,7 +268,7 @@
     <header class="pt-20 pb-16 hero-gradient">
         <div class="container mx-auto px-4 text-center" data-aos="fade-up">
             <div
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary text-sm font-bold mb-6 border border-blue-100 dark:border-blue-800">
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-black dark:text-white text-sm font-bold mb-6 border border-blue-100 dark:border-blue-800">
                 GET IN TOUCH
             </div>
             <h1 class="text-4xl md:text-6xl font-display font-bold text-slate-900 dark:text-white mb-6">Contact Us</h1>
@@ -192,7 +290,7 @@
                         <a href="tel:0758409912"
                             class="flex items-center gap-4 p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-all group">
                             <div
-                                class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                                class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center text-black dark:text-white group-hover:bg-slate-800 dark:hover:bg-slate-200 group-hover:text-white transition-all">
                                 <span class="material-symbols-outlined">call</span>
                             </div>
                             <div>
@@ -214,7 +312,7 @@
                         <a href="mailto:denisnjoroge180@gmail.com"
                             class="flex items-center gap-4 p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-all group">
                             <div
-                                class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                                class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center text-black dark:text-white group-hover:bg-slate-800 dark:hover:bg-slate-200 group-hover:text-white transition-all">
                                 <span class="material-symbols-outlined">mail</span>
                             </div>
                             <div>
@@ -225,7 +323,7 @@
                         <div
                             class="flex items-center gap-4 p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
                             <div
-                                class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
+                                class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center text-black dark:text-white">
                                 <span class="material-symbols-outlined">location_on</span>
                             </div>
                             <div>
@@ -237,7 +335,7 @@
                         <div
                             class="flex items-center gap-4 p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
                             <div
-                                class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
+                                class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center text-black dark:text-white">
                                 <span class="material-symbols-outlined">schedule</span>
                             </div>
                             <div>
@@ -268,21 +366,21 @@
                             <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Full
                                 Name</label>
                             <input type="text" id="fullName" required
-                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent"
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent"
                                 placeholder="Your full name" />
                         </div>
                         <div>
                             <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Phone
                                 Number</label>
                             <input type="tel" id="phone" required
-                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent"
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent"
                                 placeholder="07XX XXX XXX" />
                         </div>
                         <div>
                             <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">MacBook
                                 Model</label>
                             <select id="macModel" required
-                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent">
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent">
                                 <option value="">Select your MacBook model</option>
                                 <option>MacBook Pro (M3/M2/M1)</option>
                                 <option>MacBook Pro (Intel)</option>
@@ -297,7 +395,7 @@
                             <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Issue
                                 Type</label>
                             <select id="issueType" required
-                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent">
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent">
                                 <option value="">Select issue type</option>
                                 <option>Not Turning On / Dead</option>
                                 <option>Liquid Damage</option>
@@ -313,11 +411,11 @@
                             <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Describe
                                 the Problem</label>
                             <textarea id="description" rows="4" required
-                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent resize-none"
                                 placeholder="Tell us what happened..."></textarea>
                         </div>
                         <button type="submit"
-                            class="w-full bg-primary hover:bg-blue-600 text-white py-3.5 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+                            class="w-full bg-black dark:bg-white text-white dark:text-black hover:bg-slate-800 dark:hover:bg-slate-200 py-3.5 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
                             <span class="material-symbols-outlined">send</span>
                             Send via WhatsApp
                         </button>
@@ -343,7 +441,7 @@
     </a>
 
     <!-- Quick Quote Floating Button (Mobile) -->
-    <a class="md:hidden fixed bottom-24 right-6 z-[100] bg-primary text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 animate-bounce hover:scale-105 transition-transform"
+    <a class="md:hidden fixed bottom-24 right-6 z-[100] bg-black dark:bg-white text-white dark:text-black hover:bg-slate-800 dark:hover:bg-slate-200 px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 animate-bounce hover:scale-105 transition-transform"
         href="https://wa.me/254758409912?text=Hi%20Den-Tech,%20I%20would%20like%20a%20quote%20for%20your%20tech%20services." 
         target="_blank" rel="noopener noreferrer">
         <span class="material-symbols-outlined">bolt</span>
@@ -356,7 +454,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1 md:col-span-2 lg:col-span-1">
                     <div class="flex items-center gap-3 mb-6">
-                        <img alt="Dentech Repair - MacBook Specialist Nairobi" class="h-8 w-8 rounded-lg" src="logo.webp" />
+                        <img alt="Dentech Repair - MacBook Specialist Nairobi" class="grayscale hover:grayscale-0 transition-all duration-700 h-8 w-8 rounded-lg" src="logo.webp" />
                         <span class="text-xl font-display font-bold text-slate-900 dark:text-white">DENTECH
                             REPAIR</span>
                     </div>
@@ -366,39 +464,39 @@
                 <div>
                     <h4 class="font-bold text-slate-900 dark:text-white mb-6">Quick Links</h4>
                     <ul class="space-y-4 text-slate-600 dark:text-slate-400">
-                        <li><a class="hover:text-primary transition-colors" href="index.html">Home</a></li>
-                        <li><a class="hover:text-primary transition-colors" href="services.html">Services</a></li>
-                        <li><a class="hover:text-primary transition-colors" href="blog.html">Blog</a></li>
-                        <li><a class="hover:text-primary transition-colors" href="booking.html">Book Online</a></li>
-                        <li><a class="hover:text-primary transition-colors" href="contact.html">Contact</a></li>
+                        <li><a class="hover:text-black dark:text-white transition-colors" href="index.html">Home</a></li>
+                        <li><a class="hover:text-black dark:text-white transition-colors" href="services.html">Services</a></li>
+                        <li><a class="hover:text-black dark:text-white transition-colors" href="blog.html">Blog</a></li>
+                        <li><a class="hover:text-black dark:text-white transition-colors" href="booking.html">Book Online</a></li>
+                        <li><a class="hover:text-black dark:text-white transition-colors" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-bold text-slate-900 dark:text-white mb-6">Repair Services</h4>
                     <ul class="space-y-4 text-slate-600 dark:text-slate-400">
-                        <li><a class="hover:text-primary transition-colors" href="services.html">MacBook Pro Repair</a>
+                        <li><a class="hover:text-black dark:text-white transition-colors" href="services.html">MacBook Pro Repair</a>
                         </li>
-                        <li><a class="hover:text-primary transition-colors" href="services.html">MacBook Air Repair</a>
+                        <li><a class="hover:text-black dark:text-white transition-colors" href="services.html">MacBook Air Repair</a>
                         </li>
-                        <li><a class="hover:text-primary transition-colors" href="services.html">Data Recovery</a></li>
-                        <li><a class="hover:text-primary transition-colors" href="services.html">Liquid Damage</a></li>
+                        <li><a class="hover:text-black dark:text-white transition-colors" href="services.html">Data Recovery</a></li>
+                        <li><a class="hover:text-black dark:text-white transition-colors" href="services.html">Liquid Damage</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-bold text-slate-900 dark:text-white mb-6">Contact Us</h4>
                     <ul class="space-y-4 text-slate-600 dark:text-slate-400">
                         <li class="flex items-start gap-3"><span
-                                class="material-symbols-outlined text-primary">call</span><a
-                                class="hover:text-primary transition-colors" href="tel:0758409912">0758 409 912</a></li>
+                                class="material-symbols-outlined text-black dark:text-white">call</span><a
+                                class="hover:text-black dark:text-white transition-colors" href="tel:0758409912">0758 409 912</a></li>
                         <li class="flex items-start gap-3"><span
-                                class="material-symbols-outlined text-primary">mail</span><a
-                                class="hover:text-primary transition-colors"
+                                class="material-symbols-outlined text-black dark:text-white">mail</span><a
+                                class="hover:text-black dark:text-white transition-colors"
                                 href="mailto:denisnjoroge180@gmail.com">denisnjoroge180@gmail.com</a></li>
                         <li class="flex items-start gap-3"><span
-                                class="material-symbols-outlined text-primary">location_on</span><span>Bekim House,
+                                class="material-symbols-outlined text-black dark:text-white">location_on</span><span>Bekim House,
                                 Crossway, Nairobi</span></li>
                         <li class="flex items-start gap-3"><span
-                                class="material-symbols-outlined text-primary">schedule</span><span>Mon - Sat: 9:00 -
+                                class="material-symbols-outlined text-black dark:text-white">schedule</span><span>Mon - Sat: 9:00 -
                                 18:00</span></li>
                     </ul>
                 </div>
@@ -407,8 +505,8 @@
                 class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
                 <p>&copy; 2024 Dentech Repair. All rights reserved.</p>
                 <div class="flex gap-6">
-                    <a class="hover:text-primary" href="#">Privacy Policy</a>
-                    <a class="hover:text-primary" href="#">Terms of Service</a>
+                    <a class="hover:text-black dark:text-white" href="#">Privacy Policy</a>
+                    <a class="hover:text-black dark:text-white" href="#">Terms of Service</a>
                 </div>
             </div>
         </div>

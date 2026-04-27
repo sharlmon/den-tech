@@ -65,9 +65,13 @@
     }
     </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
-        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
@@ -76,57 +80,152 @@
             darkMode: "class",
             theme: {
                 extend: {
-                    colors: { primary: "#007AFF", "background-light": "#F9FAFB", "background-dark": "#111827" },
-                    fontFamily: { display: ["Outfit", "Inter", "sans-serif"], sans: ["Inter", "sans-serif"] },
-                    borderRadius: { DEFAULT: "0.75rem" },
+                    colors: {
+                        primary: "#111111", // Graphite for light mode buttons
+                        "primary-light": "#FFFFFF", 
+                        "background-light": "#F8F8F6",
+                        "background-dark": "#000000",
+                        graphite: "#111111",
+                        charcoal: "#1A1A1A",
+                        silver: "#C0C0C0",
+                    },
+                    fontFamily: {
+                        display: ["Space Grotesk", "sans-serif"],
+                        sans: ["Inter", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "1rem",
+                        "xl": "1.5rem",
+                    },
                 },
             },
         };
     </script>
     <style type="text/tailwindcss">
         .glass-effect {
-            backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
         .dark .glass-effect {
-            background: rgba(17, 24, 39, 0.7);
-            border-color: rgba(255, 255, 255, 0.1);
+            background: rgba(17, 17, 17, 0.75);
+            border-color: rgba(255, 255, 255, 0.08);
         }
         .hero-gradient {
-            background: radial-gradient(circle at top right, rgba(0, 122, 255, 0.05), transparent),
-                        radial-gradient(circle at bottom left, rgba(0, 122, 255, 0.03), transparent);
+            background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.1), transparent),
+                        radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.05), transparent);
         }
-        .page-loader { position: fixed; inset: 0; z-index: 9999; background: #F9FAFB; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
-        .dark .page-loader { background: #111827; }
+        .hero-overlay {
+            position: relative;
+            overflow: hidden;
+            background-color: #000;
+        }
+        .hero-overlay::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(17, 17, 17, 0.85) 100%);
+            z-index: 1;
+        }
+        /* Circuit Grid Background */
+        .hero-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 1;
+            opacity: 0.5;
+        }
+        .hero-overlay > * {
+            position: relative;
+            z-index: 2;
+        }
+        .capability-card, .testimonial-card, .faq-item {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+            background: rgba(255, 255, 255, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+        .dark .capability-card, .dark .testimonial-card, .dark .faq-item {
+            border: 1px solid rgba(192, 192, 192, 0.1) !important;
+            background: rgba(26, 26, 26, 0.5);
+        }
+        /* Hover lift with subtle glow */
+        .capability-card:hover, .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 20px rgba(0, 0, 0, 0.02);
+            border-color: rgba(0, 0, 0, 0.2) !important;
+        }
+        .dark .capability-card:hover, .dark .testimonial-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.05);
+            border-color: rgba(192, 192, 192, 0.4) !important;
+            background: rgba(26, 26, 26, 0.9);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        .animate-delay-100 { animation-delay: 0.1s; }
+        .animate-delay-200 { animation-delay: 0.2s; }
+        .animate-delay-300 { animation-delay: 0.3s; }
+        .animate-delay-400 { animation-delay: 0.4s; }
+        /* Page loader */
+        .page-loader {
+            position: fixed; inset: 0; z-index: 9999;
+            background: #F8F8F6;
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
+        }
+        .dark .page-loader { background: #000000; }
         .page-loader.hidden { opacity: 0; visibility: hidden; }
-        .loader-spinner { width: 48px; height: 48px; border: 4px solid #e5e7eb; border-top-color: #007AFF; border-radius: 50%; animation: spin 0.7s linear infinite; }
+        .loader-spinner {
+            width: 48px; height: 48px;
+            border: 2px solid rgba(0,0,0,0.1);
+            border-top-color: #000000;
+            border-radius: 50%;
+            animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+        .dark .loader-spinner {
+            border: 2px solid rgba(255,255,255,0.1);
+            border-top-color: #FFFFFF;
+        }
         @keyframes spin { to { transform: rotate(360deg); } }
-        .blog-card { transition: all 0.3s ease; }
-        .blog-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-        .blog-card:hover .blog-img { transform: scale(1.05); }
+        /* FAQ accordion */
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .faq-item.active .faq-answer { max-height: 400px; }
+        .faq-item.active .faq-chevron { transform: rotate(180deg); }
+        .faq-chevron { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
     </style>
 </head>
 
 <body
-    class="font-sans text-slate-900 bg-background-light dark:bg-background-dark dark:text-slate-100 selection:bg-primary selection:text-white">
+    class="font-sans text-slate-900 bg-background-light dark:bg-background-dark dark:text-slate-100 selection:bg-black dark:selection:bg-white selection:text-white dark:selection:text-black selection:text-white">
 
     <div class="page-loader" id="pageLoader">
         <div class="text-center">
             <div class="loader-spinner mx-auto mb-4"></div>
-            <p class="text-sm font-semibold text-primary tracking-wider">DENTECH REPAIR</p>
+            <p class="text-sm font-semibold text-black dark:text-white tracking-wider">DENTECH REPAIR</p>
         </div>
     </div>
 
     <!-- Top Bar -->
-    <div class="bg-slate-900 text-white py-2 px-4 text-center text-sm font-medium">
+    <div class="bg-black text-white border-b border-white/10 py-2 px-4 text-center text-sm font-medium">
         <div class="container mx-auto flex justify-center items-center gap-6">
             <span class="flex items-center gap-2">
                 <span class="material-symbols-outlined text-sm">call</span>
-                Dennis: <a class="hover:text-primary transition-colors" href="tel:0758409912">0758 409 912</a>
+                Dennis: <a class="hover:text-black dark:text-white transition-colors" href="tel:0758409912">0758 409 912</a>
             </span>
             <span class="hidden md:flex items-center gap-2">
-                <span class="material-symbols-outlined text-sm text-yellow-400">verified</span>
+                <span class="material-symbols-outlined text-sm text-black dark:text-white">verified</span>
                 Licensed &amp; Insured MacBook Specialist
             </span>
         </div>
@@ -136,21 +235,21 @@
     <nav class="sticky top-0 z-50 glass-effect border-b border-slate-200 dark:border-slate-800">
         <div class="container mx-auto px-4 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img alt="Dentech Logo - Professional Tech Services in Nairobi" class="h-10 w-10 rounded-lg shadow-sm" src="logo.webp" />
+                <img alt="Dentech Logo - Professional Tech Services in Nairobi" class="grayscale hover:grayscale-0 transition-all duration-700 h-10 w-10 rounded-lg shadow-sm" src="logo.webp" />
                 <div>
                     <span
                         class="text-2xl font-display font-bold tracking-tight text-slate-900 dark:text-white leading-none block">DENTECH</span>
-                    <span class="text-[10px] uppercase tracking-[0.2em] font-semibold text-primary">Repair
+                    <span class="text-[10px] uppercase tracking-[0.2em] font-semibold text-black dark:text-white">Repair
                         Specialist</span>
                 </div>
             </div>
             <div class="hidden md:flex items-center gap-8">
-                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                <a class="font-medium hover:text-black dark:text-white transition-colors text-slate-600 dark:text-slate-400"
                     href="index.html">Home</a>
-                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                <a class="font-medium hover:text-black dark:text-white transition-colors text-slate-600 dark:text-slate-400"
                     href="services.html">Services</a>
-                <a class="font-medium text-primary" href="blog.html">Blog</a>
-                <a class="font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400"
+                <a class="font-medium text-black dark:text-white" href="blog.html">Blog</a>
+                <a class="font-medium hover:text-black dark:text-white transition-colors text-slate-600 dark:text-slate-400"
                     href="contact.html">Contact</a>
                 <button id="darkToggle"
                     class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
@@ -158,7 +257,7 @@
                     <span class="material-symbols-outlined dark:hidden">dark_mode</span>
                     <span class="material-symbols-outlined hidden dark:block">light_mode</span>
                 </button>
-                <a class="bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg"
+                <a class="bg-black dark:bg-white text-white dark:text-black hover:bg-slate-800 dark:hover:bg-slate-200 px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg"
                     href="booking.html">Book Diagnosis</a>
             </div>
             <div class="flex items-center gap-2 md:hidden">
@@ -175,14 +274,14 @@
         </div>
         <div id="mobileMenu"
             class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
-            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+            <a class="block font-medium hover:text-black dark:text-white transition-colors text-slate-600 dark:text-slate-400 py-2"
                 href="index.html">Home</a>
-            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+            <a class="block font-medium hover:text-black dark:text-white transition-colors text-slate-600 dark:text-slate-400 py-2"
                 href="services.html">Services</a>
-            <a class="block font-medium text-primary py-2" href="blog.html">Blog</a>
-            <a class="block font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-400 py-2"
+            <a class="block font-medium text-black dark:text-white py-2" href="blog.html">Blog</a>
+            <a class="block font-medium hover:text-black dark:text-white transition-colors text-slate-600 dark:text-slate-400 py-2"
                 href="contact.html">Contact</a>
-            <a class="block bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-center"
+            <a class="block bg-black dark:bg-white text-white dark:text-black hover:bg-slate-800 dark:hover:bg-slate-200 px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-center"
                 href="booking.html">Book Diagnosis</a>
         </div>
     </nav>
@@ -191,7 +290,7 @@
     <header class="pt-20 pb-16 hero-gradient">
         <div class="container mx-auto px-4 text-center" data-aos="fade-up">
             <div
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary text-sm font-bold mb-6 border border-blue-100 dark:border-blue-800">
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-black dark:text-white text-sm font-bold mb-6 border border-blue-100 dark:border-blue-800">
                 <span class="material-symbols-outlined text-sm">article</span>
                 KNOWLEDGE BASE
             </div>
@@ -211,7 +310,7 @@
                 data-aos="fade-up">
                 <div class="grid md:grid-cols-2">
                     <div class="h-64 md:h-auto overflow-hidden">
-                        <img src="work.webp" alt="Professional Logic board repair close-up in Nairobi" class="w-full h-full object-cover" />
+                        <img src="work.webp" alt="Professional Logic board repair close-up in Nairobi" class="grayscale hover:grayscale-0 transition-all duration-700 w-full h-full object-cover" />
                     </div>
                     <div class="p-8 md:p-12 flex flex-col justify-center">
                         <span
@@ -222,8 +321,8 @@
                             of logic board failure before it's too late. From unexpected shutdowns to charging issues,
                             here's what to watch for.</p>
                         <div class="flex items-center gap-3 mb-6">
-                            <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
-                                <span class="text-primary text-xs font-bold">D</span>
+                            <div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
+                                <span class="text-black dark:text-white text-xs font-bold">D</span>
                             </div>
                             <div>
                                 <p class="text-sm font-semibold text-slate-900 dark:text-white">Dennis Njoroge</p>
@@ -231,7 +330,7 @@
                             </div>
                         </div>
                         <a href="#post1"
-                            class="inline-flex items-center text-primary font-bold hover:gap-2 transition-all">
+                            class="inline-flex items-center text-black dark:text-white font-bold hover:gap-2 transition-all">
                             Read Article <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
                         </a>
                     </div>
@@ -262,7 +361,7 @@
                             are critical. Here's the exact steps to take to maximize your chances of saving your MacBook
                             from liquid damage.</p>
                         <div class="border-t border-slate-100 dark:border-slate-700 pt-4">
-                            <h4 class="text-sm font-bold text-primary mb-2">Quick Steps:</h4>
+                            <h4 class="text-sm font-bold text-black dark:text-white mb-2">Quick Steps:</h4>
                             <ol class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5 list-decimal pl-4">
                                 <li><strong>Power off immediately</strong> — Don't try to save your work. Hold the power
                                     button.</li>
@@ -289,13 +388,13 @@
                     </div>
                     <div class="p-6">
                         <span
-                            class="inline-block px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary text-xs font-bold mb-3">MAINTENANCE</span>
+                            class="inline-block px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-black dark:text-white text-xs font-bold mb-3">MAINTENANCE</span>
                         <h3 class="text-lg font-bold mb-3 text-slate-900 dark:text-white">7 Tips to Extend Your
                             MacBook's Lifespan</h3>
                         <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">Simple habits that
                             can add years to your MacBook's life and save you thousands in repairs.</p>
                         <div class="border-t border-slate-100 dark:border-slate-700 pt-4">
-                            <h4 class="text-sm font-bold text-primary mb-2">Key Tips:</h4>
+                            <h4 class="text-sm font-bold text-black dark:text-white mb-2">Key Tips:</h4>
                             <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
                                 <li>🔋 Keep battery between 20-80% when possible</li>
                                 <li>🌡️ Use on hard, flat surfaces for proper ventilation</li>
@@ -321,14 +420,14 @@
                     </div>
                     <div class="p-6">
                         <span
-                            class="inline-block px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-bold mb-3">DATA
+                            class="inline-block px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-900/30 text-black dark:text-white dark:text-purple-400 text-xs font-bold mb-3">DATA
                             SAFETY</span>
                         <h3 class="text-lg font-bold mb-3 text-slate-900 dark:text-white">Can Your Data Be Recovered
                             From a Dead MacBook?</h3>
                         <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">Your MacBook won't
                             turn on, but your photos and documents might still be intact. Here's what's possible.</p>
                         <div class="border-t border-slate-100 dark:border-slate-700 pt-4">
-                            <h4 class="text-sm font-bold text-primary mb-2">Recovery Chances:</h4>
+                            <h4 class="text-sm font-bold text-black dark:text-white mb-2">Recovery Chances:</h4>
                             <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
                                 <li>✅ <strong>Logic board failure</strong> — Very high recovery rate</li>
                                 <li>✅ <strong>Liquid damage (early)</strong> — Usually recoverable</li>
@@ -352,7 +451,7 @@
                     </div>
                     <div class="p-6">
                         <span
-                            class="inline-block px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-bold mb-3">GUIDE</span>
+                            class="inline-block px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-900/30 text-black dark:text-white dark:text-black dark:text-white text-xs font-bold mb-3">GUIDE</span>
                         <h3 class="text-lg font-bold mb-3 text-slate-900 dark:text-white">Apple Store vs Independent
                             Repair: What's the Difference?</h3>
                         <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">Understanding why
@@ -369,7 +468,7 @@
                                     </ul>
                                 </div>
                                 <div>
-                                    <p class="font-bold text-primary mb-1">Dentech:</p>
+                                    <p class="font-bold text-black dark:text-white mb-1">Dentech:</p>
                                     <ul class="space-y-1">
                                         <li>• Component-level fix</li>
                                         <li>• KSh 5,000 - 30,000</li>
@@ -392,13 +491,13 @@
                     </div>
                     <div class="p-6">
                         <span
-                            class="inline-block px-2 py-0.5 rounded-full bg-yellow-50 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 text-xs font-bold mb-3">TROUBLESHOOT</span>
+                            class="inline-block px-2 py-0.5 rounded-full bg-yellow-50 dark:bg-yellow-900/30 text-yellow-600 dark:text-black dark:text-white text-xs font-bold mb-3">TROUBLESHOOT</span>
                         <h3 class="text-lg font-bold mb-3 text-slate-900 dark:text-white">MacBook Not Charging? Here's
                             Why</h3>
                         <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">Before you panic, try
                             these diagnostics. Not all charging issues require a repair — but some definitely do.</p>
                         <div class="border-t border-slate-100 dark:border-slate-700 pt-4">
-                            <h4 class="text-sm font-bold text-primary mb-2">Common Causes:</h4>
+                            <h4 class="text-sm font-bold text-black dark:text-white mb-2">Common Causes:</h4>
                             <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
                                 <li>🔌 Faulty cable or adapter (try a different one)</li>
                                 <li>🧹 Dirty USB-C port (clean gently with toothpick)</li>
@@ -416,12 +515,12 @@
                     class="blog-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm"
                     data-aos="fade-up" data-aos-delay="200">
                     <div
-                        class="h-48 overflow-hidden bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center">
+                        class="h-48 overflow-hidden bg-slate-900 flex items-center justify-center">
                         <span class="material-symbols-outlined text-white text-6xl">build</span>
                     </div>
                     <div class="p-6">
                         <span
-                            class="inline-block px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary text-xs font-bold mb-3">BEHIND
+                            class="inline-block px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-black dark:text-white text-xs font-bold mb-3">BEHIND
                             THE SCENES</span>
                         <h3 class="text-lg font-bold mb-3 text-slate-900 dark:text-white">What Happens During a Free
                             Diagnosis?</h3>
@@ -429,7 +528,7 @@
                             do when you bring your MacBook in? Here's a walkthrough of our professional diagnosis
                             process.</p>
                         <div class="border-t border-slate-100 dark:border-slate-700 pt-4">
-                            <h4 class="text-sm font-bold text-primary mb-2">Our Process:</h4>
+                            <h4 class="text-sm font-bold text-black dark:text-white mb-2">Our Process:</h4>
                             <ol class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5 list-decimal pl-4">
                                 <li>Visual inspection for physical damage</li>
                                 <li>Power-on test and system diagnostics</li>
@@ -451,7 +550,7 @@
                     <p class="text-slate-400 mb-6">Don't wait until it gets worse. Get a free diagnosis today.</p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="booking.html"
-                            class="bg-primary hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-all shadow-lg hover:shadow-xl">Book
+                            class="bg-black dark:bg-white text-white dark:text-black hover:bg-slate-800 dark:hover:bg-slate-200 px-8 py-3 rounded-full font-semibold transition-all shadow-lg hover:shadow-xl">Book
                             Free Diagnosis</a>
                         <a href="https://wa.me/message/LQPWHU2EV3P4I1" target="_blank"
                             class="bg-[#25D366] hover:bg-[#1da851] text-white px-8 py-3 rounded-full font-semibold transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
@@ -482,7 +581,7 @@
     </a>
 
     <!-- Quick Quote Floating Button (Mobile) -->
-    <a class="md:hidden fixed bottom-24 right-6 z-[100] bg-primary text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 animate-bounce hover:scale-105 transition-transform"
+    <a class="md:hidden fixed bottom-24 right-6 z-[100] bg-black dark:bg-white text-white dark:text-black hover:bg-slate-800 dark:hover:bg-slate-200 px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 animate-bounce hover:scale-105 transition-transform"
         href="https://wa.me/254758409912?text=Hi%20Den-Tech,%20I%20would%20like%20a%20quote%20for%20your%20tech%20services." 
         target="_blank" rel="noopener noreferrer">
         <span class="material-symbols-outlined">bolt</span>
@@ -496,10 +595,10 @@
                 class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
                 <p>&copy; 2024 Dentech Repair. All rights reserved.</p>
                 <div class="flex gap-6">
-                    <a class="hover:text-primary" href="index.html">Home</a>
-                    <a class="hover:text-primary" href="services.html">Services</a>
-                    <a class="hover:text-primary" href="booking.html">Book Online</a>
-                    <a class="hover:text-primary" href="contact.html">Contact</a>
+                    <a class="hover:text-black dark:text-white" href="index.html">Home</a>
+                    <a class="hover:text-black dark:text-white" href="services.html">Services</a>
+                    <a class="hover:text-black dark:text-white" href="booking.html">Book Online</a>
+                    <a class="hover:text-black dark:text-white" href="contact.html">Contact</a>
                 </div>
             </div>
         </div>
