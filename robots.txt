@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sharlmon.github.io/den-tech/sitemap.xml

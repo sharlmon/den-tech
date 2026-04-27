@@ -341,11 +341,15 @@
                     </div>
 
                     <!-- Map -->
-                    <div class="mt-10 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700">
+                    <div class="mt-10 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl group">
+                        <div class="bg-slate-100 dark:bg-slate-900 p-3 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                            <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Workshop Location</span>
+                            <a href="https://maps.app.goo.gl/tW8xL2Z8r4D8X1m8A" target="_blank" class="text-xs font-bold text-black dark:text-white hover:underline">Open in Maps</a>
+                        </div>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.4!2d36.8047344!3d-1.2665125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f173f74ebbad7%3A0xb3facae314f782a4!2sBekim%20House!5e0!3m2!1sen!2ske!4v1709548800000!5m2!1sen!2ske"
-                            width="100%" height="200" style="border:0;" allowfullscreen=""
-                            referrerpolicy="no-referrer-when-downgrade" class="rounded-xl">
+                            width="100%" height="350" style="border:0; filter: grayscale(1) contrast(1.2) invert(0);" allowfullscreen=""
+                            referrerpolicy="no-referrer-when-downgrade" class="dark:invert dark:hue-rotate-180 dark:brightness-90 transition-all duration-700">
                         </iframe>
                     </div>
                 </div>
@@ -354,26 +358,30 @@
                 <div data-aos="fade-left">
                     <h2 class="text-2xl font-display font-bold mb-8 text-slate-900 dark:text-white">Send a Repair
                         Inquiry</h2>
-                    <form id="contactForm"
-                        class="space-y-6 bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700">
+                    <form action="https://api.web3forms.com/submit" method="POST" id="contactForm"
+                        class="space-y-6 bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-xl">
+                        
+                        <!-- Web3Forms Config -->
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        <input type="hidden" name="subject" value="New Repair Inquiry from Den-Tech Website">
+                        <input type="hidden" name="from_name" value="Den-Tech Repairs">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Full
-                                Name</label>
-                            <input type="text" id="fullName" required
+                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Full Name</label>
+                            <input type="text" name="name" id="fullName" required
                                 class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent"
                                 placeholder="Your full name" />
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Phone
-                                Number</label>
-                            <input type="tel" id="phone" required
+                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Phone Number</label>
+                            <input type="tel" name="phone" id="phone" required
                                 class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent"
                                 placeholder="07XX XXX XXX" />
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">MacBook
-                                Model</label>
-                            <select id="macModel" required
+                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">MacBook Model</label>
+                            <select name="model" id="macModel" required
                                 class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent">
                                 <option value="">Select your MacBook model</option>
                                 <option>MacBook Pro (M3/M2/M1)</option>
@@ -386,9 +394,8 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Issue
-                                Type</label>
-                            <select id="issueType" required
+                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Issue Type</label>
+                            <select name="issue_type" id="issueType" required
                                 class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent">
                                 <option value="">Select issue type</option>
                                 <option>Not Turning On / Dead</option>
@@ -402,19 +409,17 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Describe
-                                the Problem</label>
-                            <textarea id="description" rows="4" required
+                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Describe the Problem</label>
+                            <textarea name="message" id="description" rows="4" required
                                 class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent resize-none"
                                 placeholder="Tell us what happened..."></textarea>
                         </div>
                         <button type="submit"
                             class="w-full bg-black dark:bg-white text-white dark:text-black hover:bg-slate-800 dark:hover:bg-slate-200 py-3.5 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
                             <span class="material-symbols-outlined">send</span>
-                            Send via WhatsApp
+                            Send Inquiry
                         </button>
-                        <p class="text-xs text-slate-500 text-center">Your inquiry will be sent directly to Dennis via
-                            WhatsApp for a quick response.</p>
+                        <p class="text-xs text-slate-500 text-center">Your inquiry will be sent via email and you'll also have the option to chat with Dennis on WhatsApp.</p>
                     </form>
                 </div>
             </div>
@@ -532,13 +537,40 @@
         // Contact form → WhatsApp
         document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            const name = document.getElementById('fullName').value;
-            const phone = document.getElementById('phone').value;
-            const model = document.getElementById('macModel').value;
-            const issue = document.getElementById('issueType').value;
-            const desc = document.getElementById('description').value;
-            const msg = `Hi Dennis, I need a MacBook repair.\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Model:* ${model}\n*Issue:* ${issue}\n*Details:* ${desc}`;
-            window.open('https://wa.me/message/LQPWHU2EV3P4I1?text=' + encodeURIComponent(msg), '_blank');
+            const form = e.target;
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            // 1. Send to Web3Forms (Email)
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                console.log("Email inquiry sent successfully");
+            })
+            .catch(error => {
+                console.log("Email failed but WhatsApp is still opening...");
+            })
+            .then(() => {
+                // 2. Open WhatsApp (regardless of email success)
+                const name = formData.get('name') || '';
+                const phone = formData.get('phone') || '';
+                const model = formData.get('model') || '';
+                const issue = formData.get('issue_type') || formData.get('service') || '';
+                const desc = formData.get('message') || '';
+                
+                const msg = `Hi Dennis, I need a MacBook repair.\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Model:* ${model}\n*Issue:* ${issue}\n*Details:* ${desc}`;
+                window.open('https://wa.me/message/LQPWHU2EV3P4I1?text=' + encodeURIComponent(msg), '_blank');
+                
+                // Reset form
+                form.reset();
+            });
         });
     </script>
 
